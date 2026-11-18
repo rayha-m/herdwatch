@@ -1,0 +1,139 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow09_1108_1836",
+  "kind": "behaviour_night",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 18:36:32.633333",
+  "box": [
+   "707",
+   "557",
+   "807",
+   "622"
+  ],
+  "bunk_ov": 0.2053846153846154,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.663302297590354,
+  "cow": 9,
+  "minute": "2026-11-08 18:36:00",
+  "question": "What is Cow09 doing during this minute? Tracker says 'lying' (sample votes: {'standing': 0.43, 'lying': 0.57}).",
+  "context": "28 samples this minute; night=True; posture P(standing)=0.66"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow09_1108_1836 (behaviour_night). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 18:36:32.633333.\nTracker context: 28 samples this minute; night=True; posture P(standing)=0.66\nQuestion: What is Cow09 doing during this minute? Tracker says 'lying' (sample votes: {'standing': 0.43, 'lying': 0.57}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -25,
+       0,
+       25
+      ]
+     }
+    },
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -25s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +25s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-25s.jpg",
+    "04_seq_+0s.jpg",
+    "05_seq_+25s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 3.26, \"peak_to_median\": 1.3, \"motion_energy\": 0.808, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_other_camera",
+     "input": {
+      "camera": "Cam 01",
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_other_camera",
+   "result": [],
+   "images": [
+    "06_other_Cam01.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "lying",
+      "posture": "lying",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.6,
+      "evidence": "Zoomed Cam 03 IR crop shows a low, compact dark body with no visible legs beneath it, consistent with a cow lying near (not in) the bunk zone. Frames at -25, 0, +25 s show the same position and shape (stationary). chew_check: 3.26 Hz with peak/median 1.3, so no rumination rhythm was detected.",
+      "self_check": "Checked consistency over time with a sequence (-25/0/+25 s), ran chew_check, and tried Cam 01 (cow not visible there). The low-res night IR could hide standing legs or rumination. If a better view showed extended legs, the answer would be standing."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:28:02",
+ "answer": {
+  "behavior": "lying",
+  "posture": "lying",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.6,
+  "evidence": "Zoomed Cam 03 IR crop shows a low, compact dark body with no visible legs beneath it, consistent with a cow lying near (not in) the bunk zone. Frames at -25, 0, +25 s show the same position and shape (stationary). chew_check: 3.26 Hz with peak/median 1.3, so no rumination rhythm was detected.",
+  "self_check": "Checked consistency over time with a sequence (-25/0/+25 s), ran chew_check, and tried Cam 01 (cow not visible there). The low-res night IR could hide standing legs or rumination. If a better view showed extended legs, the answer would be standing.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

@@ -1,0 +1,118 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow02_1107_0222",
+  "kind": "behaviour_night",
+  "cam": "Cam 03",
+  "ts": "2026-11-07 02:22:31.633333",
+  "box": [
+   "297",
+   "743",
+   "586",
+   "897"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.4831502723272577,
+  "cow": 2,
+  "minute": "2026-11-07 02:22:00",
+  "question": "What is Cow02 doing during this minute? Tracker says 'lying' (sample votes: {'standing': 0.4, 'lying': 0.6}).",
+  "context": "30 samples this minute; night=True; posture P(standing)=0.48"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow02_1107_0222 (behaviour_night). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-07 02:22:31.633333.\nTracker context: 30 samples this minute; night=True; posture P(standing)=0.48\nQuestion: What is Cow02 doing during this minute? Tracker says 'lying' (sample votes: {'standing': 0.4, 'lying': 0.6}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    },
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -25,
+       0,
+       25
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 0.5, \"peak_to_median\": 3.0, \"motion_energy\": 0.022, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -25s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +25s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-25s.jpg",
+    "04_seq_+0s.jpg",
+    "05_seq_+25s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "lying",
+      "posture": "lying",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.85,
+      "evidence": "Zoomed IR crop shows the cow lying on her chest with her legs folded under her body and one hind leg stretched out. Her head is up and her ear is not drooped. Frames at -25 s, 0 s and +25 s show the same lying posture in the same spot with no movement, near the other cows that are also lying down. The chew test was not rhythmic enough to count as cud chewing (0.5 Hz, peak-to-median ratio 3.0).",
+      "self_check": "I checked across time (three frames spanning about 50 s) and ran a chew test. Both support lying without rumination. The tracker's 'standing' votes are probably confused by her head being held up. If she was chewing weakly and the IR image didn't pick it up, the right label would be ruminating_lying. Night IR resolution is too low to judge discharge or breathing."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:27:58",
+ "answer": {
+  "behavior": "lying",
+  "posture": "lying",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.85,
+  "evidence": "Zoomed IR crop shows the cow lying on her chest with her legs folded under her body and one hind leg stretched out. Her head is up and her ear is not drooped. Frames at -25 s, 0 s and +25 s show the same lying posture in the same spot with no movement, near the other cows that are also lying down. The chew test was not rhythmic enough to count as cud chewing (0.5 Hz, peak-to-median ratio 3.0).",
+  "self_check": "I checked across time (three frames spanning about 50 s) and ran a chew test. Both support lying without rumination. The tracker's 'standing' votes are probably confused by her head being held up. If she was chewing weakly and the IR image didn't pick it up, the right label would be ruminating_lying. Night IR resolution is too low to judge discharge or breathing.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 2
+}

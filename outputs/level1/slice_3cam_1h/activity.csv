@@ -1,0 +1,124 @@
+cow_id,behavior,start,end,duration_min,source,mean_confidence,cameras,night
+Cow01,lying,2026-11-08 17:00:00,2026-11-08 17:14:00,14,observed,0.99,Cam 03,False
+Cow01,standing,2026-11-08 17:14:00,2026-11-08 17:15:00,1,observed,1.0,Cam 03,False
+Cow01,drinking,2026-11-08 17:15:00,2026-11-08 17:16:00,1,observed,0.6,"Cam 01,Cam 03",False
+Cow01,standing,2026-11-08 17:16:00,2026-11-08 17:17:00,1,observed,0.62,"Cam 01,Cam 03",False
+Cow01,feeding,2026-11-08 17:17:00,2026-11-08 17:46:00,29,observed,0.83,"Cam 01,Cam 03",False
+Cow01,other_not_visible,2026-11-08 17:46:00,2026-11-08 17:48:00,2,not_observed,0.0,,False
+Cow01,standing,2026-11-08 17:48:00,2026-11-08 17:51:00,3,observed,0.85,Cam 03,False
+Cow01,other_not_visible,2026-11-08 17:51:00,2026-11-08 17:52:00,1,not_observed,0.0,,False
+Cow01,drinking,2026-11-08 17:52:00,2026-11-08 17:53:00,1,observed,1.0,Cam 03,True
+Cow01,standing,2026-11-08 17:53:00,2026-11-08 17:54:00,1,observed,0.58,Cam 03,True
+Cow01,drinking,2026-11-08 17:54:00,2026-11-08 17:55:00,1,observed,0.92,Cam 03,True
+Cow01,lying,2026-11-08 17:55:00,2026-11-08 17:56:00,1,observed,0.56,Cam 03,True
+Cow01,standing,2026-11-08 17:56:00,2026-11-08 17:59:00,3,observed,0.67,Cam 03,True
+Cow01,other_not_visible,2026-11-08 17:59:00,2026-11-08 18:00:00,1,not_observed,0.0,,False
+Cow02,lying,2026-11-08 17:00:00,2026-11-08 17:07:00,7,observed,0.94,Cam 03,False
+Cow02,standing,2026-11-08 17:07:00,2026-11-08 17:10:00,3,observed,0.86,Cam 03,False
+Cow02,lying,2026-11-08 17:10:00,2026-11-08 17:21:00,11,observed,1.0,Cam 03,False
+Cow02,standing,2026-11-08 17:21:00,2026-11-08 17:25:00,4,observed,0.86,Cam 03,False
+Cow02,feeding,2026-11-08 17:25:00,2026-11-08 17:31:00,6,observed,0.96,Cam 03,False
+Cow02,other_not_visible,2026-11-08 17:31:00,2026-11-08 17:32:00,1,not_observed,0.0,,False
+Cow02,feeding,2026-11-08 17:32:00,2026-11-08 17:34:00,2,observed,1.0,Cam 03,False
+Cow02,other_not_visible,2026-11-08 17:34:00,2026-11-08 17:40:00,6,not_observed,0.0,,False
+Cow02,feeding,2026-11-08 17:40:00,2026-11-08 17:42:00,2,observed,0.98,Cam 03,False
+Cow02,standing,2026-11-08 17:42:00,2026-11-08 17:43:00,1,observed,0.53,Cam 03,False
+Cow02,lying,2026-11-08 17:43:00,2026-11-08 17:44:00,1,observed,0.93,Cam 03,False
+Cow02,standing,2026-11-08 17:44:00,2026-11-08 17:45:00,1,observed,0.53,Cam 03,False
+Cow02,lying,2026-11-08 17:45:00,2026-11-08 17:46:00,1,observed,0.64,Cam 03,False
+Cow02,standing,2026-11-08 17:46:00,2026-11-08 17:48:00,2,observed,0.67,Cam 03,False
+Cow02,social_interaction,2026-11-08 17:48:00,2026-11-08 17:49:00,1,estimated,0.5,Cam 03,False
+Cow02,standing,2026-11-08 17:49:00,2026-11-08 17:56:00,7,observed,0.93,Cam 03,True
+Cow02,social_interaction,2026-11-08 17:56:00,2026-11-08 17:57:00,1,estimated,0.7,Cam 03,True
+Cow02,standing,2026-11-08 17:57:00,2026-11-08 17:59:00,2,observed,0.79,Cam 03,True
+Cow02,other_not_visible,2026-11-08 17:59:00,2026-11-08 18:00:00,1,not_observed,0.0,,False
+Cow03,drinking,2026-11-08 17:00:00,2026-11-08 17:04:00,4,observed,0.75,"Cam 01,Cam 03",False
+Cow03,feeding,2026-11-08 17:04:00,2026-11-08 17:06:00,2,observed,0.46,"Cam 01,Cam 03",False
+Cow03,standing,2026-11-08 17:06:00,2026-11-08 17:07:00,1,observed,0.77,Cam 01,False
+Cow03,feeding,2026-11-08 17:07:00,2026-11-08 17:08:00,1,observed,0.44,"Cam 01,Cam 03",False
+Cow03,drinking,2026-11-08 17:08:00,2026-11-08 17:14:00,6,observed,0.86,"Cam 01,Cam 03",False
+Cow03,standing,2026-11-08 17:14:00,2026-11-08 17:18:00,4,observed,0.67,"Cam 01,Cam 02,Cam 03",False
+Cow03,feeding,2026-11-08 17:18:00,2026-11-08 17:26:00,8,observed,0.72,"Cam 01,Cam 02,Cam 03",False
+Cow03,other_not_visible,2026-11-08 17:26:00,2026-11-08 17:27:00,1,not_observed,0.0,,False
+Cow03,feeding,2026-11-08 17:27:00,2026-11-08 17:29:00,2,observed,1.0,Cam 03,False
+Cow03,other_not_visible,2026-11-08 17:29:00,2026-11-08 17:37:00,8,not_observed,0.0,,False
+Cow03,feeding,2026-11-08 17:37:00,2026-11-08 17:49:00,12,observed,0.85,"Cam 01,Cam 03",False
+Cow03,drinking,2026-11-08 17:49:00,2026-11-08 17:51:00,2,observed,0.54,"Cam 01,Cam 03",False
+Cow03,standing,2026-11-08 17:51:00,2026-11-08 17:55:00,4,observed,0.64,Cam 03,True
+Cow03,lying,2026-11-08 17:55:00,2026-11-08 18:00:00,5,observed,0.82,Cam 03,True
+Cow04,feeding,2026-11-08 17:00:00,2026-11-08 17:02:00,2,observed,0.7,"Cam 01,Cam 02,Cam 03",False
+Cow04,standing,2026-11-08 17:02:00,2026-11-08 17:03:00,1,observed,0.64,"Cam 01,Cam 03",False
+Cow04,drinking,2026-11-08 17:03:00,2026-11-08 17:11:00,8,observed,0.88,"Cam 01,Cam 03",False
+Cow04,standing,2026-11-08 17:11:00,2026-11-08 17:16:00,5,observed,0.93,Cam 03,False
+Cow04,feeding,2026-11-08 17:16:00,2026-11-08 17:31:00,15,observed,0.85,"Cam 01,Cam 03",False
+Cow04,other_not_visible,2026-11-08 17:31:00,2026-11-08 17:34:00,3,not_observed,0.0,,False
+Cow04,feeding,2026-11-08 17:34:00,2026-11-08 17:42:00,8,observed,0.96,"Cam 01,Cam 02,Cam 03",False
+Cow04,other_not_visible,2026-11-08 17:42:00,2026-11-08 17:45:00,3,not_observed,0.0,,False
+Cow04,drinking,2026-11-08 17:45:00,2026-11-08 17:49:00,4,observed,0.73,Cam 03,False
+Cow04,other_not_visible,2026-11-08 17:49:00,2026-11-08 17:50:00,1,not_observed,0.0,,False
+Cow04,standing,2026-11-08 17:50:00,2026-11-08 17:51:00,1,observed,1.0,Cam 03,True
+Cow04,drinking,2026-11-08 17:51:00,2026-11-08 17:56:00,5,observed,0.84,"Cam 01,Cam 03",True
+Cow04,feeding,2026-11-08 17:56:00,2026-11-08 17:58:00,2,observed,0.41,"Cam 01,Cam 03",True
+Cow04,standing,2026-11-08 17:58:00,2026-11-08 18:00:00,2,observed,0.79,Cam 03,True
+Cow05,feeding,2026-11-08 17:00:00,2026-11-08 17:11:00,11,observed,0.91,"Cam 01,Cam 03",False
+Cow05,other_not_visible,2026-11-08 17:11:00,2026-11-08 17:12:00,1,not_observed,0.0,,False
+Cow05,standing,2026-11-08 17:12:00,2026-11-08 17:13:00,1,observed,0.5,Cam 03,False
+Cow05,other_not_visible,2026-11-08 17:13:00,2026-11-08 17:17:00,4,not_observed,0.0,,False
+Cow05,feeding,2026-11-08 17:17:00,2026-11-08 17:19:00,2,observed,1.0,Cam 03,False
+Cow05,other_not_visible,2026-11-08 17:19:00,2026-11-08 17:20:00,1,not_observed,0.0,,False
+Cow05,feeding,2026-11-08 17:20:00,2026-11-08 17:54:00,34,observed,0.9,"Cam 01,Cam 02,Cam 03",False
+Cow05,standing,2026-11-08 17:54:00,2026-11-08 17:56:00,2,observed,0.82,"Cam 01,Cam 03",True
+Cow05,drinking,2026-11-08 17:56:00,2026-11-08 17:58:00,2,observed,0.53,"Cam 01,Cam 03",True
+Cow05,standing,2026-11-08 17:58:00,2026-11-08 17:59:00,1,observed,0.8,Cam 03,True
+Cow05,social_interaction,2026-11-08 17:59:00,2026-11-08 18:00:00,1,estimated,0.73,Cam 03,True
+Cow06,feeding,2026-11-08 17:00:00,2026-11-08 17:24:00,24,observed,0.88,"Cam 01,Cam 03",False
+Cow06,other_not_visible,2026-11-08 17:24:00,2026-11-08 17:25:00,1,not_observed,0.0,,False
+Cow06,feeding,2026-11-08 17:25:00,2026-11-08 17:36:00,11,observed,0.56,"Cam 01,Cam 03",False
+Cow06,standing,2026-11-08 17:36:00,2026-11-08 17:37:00,1,observed,1.0,Cam 01,False
+Cow06,feeding,2026-11-08 17:37:00,2026-11-08 17:46:00,9,observed,0.59,"Cam 01,Cam 03",False
+Cow06,other_not_visible,2026-11-08 17:46:00,2026-11-08 17:50:00,4,not_observed,0.0,,False
+Cow06,drinking,2026-11-08 17:50:00,2026-11-08 17:52:00,2,observed,0.56,"Cam 01,Cam 03",True
+Cow06,standing,2026-11-08 17:52:00,2026-11-08 17:54:00,2,observed,0.63,"Cam 01,Cam 03",True
+Cow06,drinking,2026-11-08 17:54:00,2026-11-08 17:57:00,3,observed,0.53,"Cam 01,Cam 03",True
+Cow06,standing,2026-11-08 17:57:00,2026-11-08 17:58:00,1,observed,0.73,"Cam 01,Cam 03",True
+Cow06,feeding,2026-11-08 17:58:00,2026-11-08 18:00:00,2,observed,0.56,"Cam 01,Cam 03",True
+Cow07,feeding,2026-11-08 17:00:00,2026-11-08 17:28:00,28,observed,0.73,"Cam 01,Cam 02,Cam 03",False
+Cow07,other_not_visible,2026-11-08 17:28:00,2026-11-08 17:29:00,1,not_observed,0.0,,False
+Cow07,feeding,2026-11-08 17:29:00,2026-11-08 17:59:00,30,observed,0.87,"Cam 01,Cam 03",False
+Cow07,social_interaction,2026-11-08 17:59:00,2026-11-08 18:00:00,1,estimated,0.73,Cam 03,True
+Cow08,feeding,2026-11-08 17:00:00,2026-11-08 17:16:00,16,observed,0.88,"Cam 01,Cam 02,Cam 03",False
+Cow08,standing,2026-11-08 17:16:00,2026-11-08 17:17:00,1,observed,0.78,"Cam 01,Cam 02,Cam 03",False
+Cow08,feeding,2026-11-08 17:17:00,2026-11-08 17:18:00,1,observed,0.83,"Cam 01,Cam 02,Cam 03",False
+Cow08,standing,2026-11-08 17:18:00,2026-11-08 17:19:00,1,observed,0.68,"Cam 01,Cam 02,Cam 03",False
+Cow08,feeding,2026-11-08 17:19:00,2026-11-08 17:49:00,30,observed,0.91,"Cam 01,Cam 02,Cam 03",False
+Cow08,standing,2026-11-08 17:49:00,2026-11-08 17:56:00,7,observed,0.97,"Cam 01,Cam 02,Cam 03",True
+Cow08,social_interaction,2026-11-08 17:56:00,2026-11-08 17:57:00,1,estimated,0.85,Cam 03,True
+Cow08,standing,2026-11-08 17:57:00,2026-11-08 17:59:00,2,observed,0.63,Cam 03,True
+Cow08,feeding,2026-11-08 17:59:00,2026-11-08 18:00:00,1,observed,0.4,Cam 03,True
+Cow09,other_not_visible,2026-11-08 17:00:00,2026-11-08 17:01:00,1,not_observed,0.0,,False
+Cow09,feeding,2026-11-08 17:01:00,2026-11-08 17:03:00,2,observed,1.0,Cam 03,False
+Cow09,other_not_visible,2026-11-08 17:03:00,2026-11-08 17:10:00,7,not_observed,0.0,,False
+Cow09,feeding,2026-11-08 17:10:00,2026-11-08 17:11:00,1,observed,1.0,Cam 03,False
+Cow09,standing,2026-11-08 17:11:00,2026-11-08 17:16:00,5,observed,0.88,Cam 03,False
+Cow09,drinking,2026-11-08 17:16:00,2026-11-08 17:23:00,7,observed,0.89,Cam 03,False
+Cow09,feeding,2026-11-08 17:23:00,2026-11-08 17:26:00,3,observed,0.59,"Cam 01,Cam 03",False
+Cow09,other_not_visible,2026-11-08 17:26:00,2026-11-08 17:45:00,19,not_observed,0.0,,False
+Cow09,feeding,2026-11-08 17:45:00,2026-11-08 17:48:00,3,observed,0.47,"Cam 01,Cam 03",True
+Cow09,drinking,2026-11-08 17:48:00,2026-11-08 17:50:00,2,observed,0.88,"Cam 01,Cam 03",False
+Cow09,standing,2026-11-08 17:50:00,2026-11-08 17:51:00,1,observed,0.64,"Cam 01,Cam 03",False
+Cow09,other_not_visible,2026-11-08 17:51:00,2026-11-08 17:55:00,4,not_observed,0.0,,False
+Cow09,standing,2026-11-08 17:55:00,2026-11-08 18:00:00,5,observed,0.93,Cam 03,True
+Cow10,other_not_visible,2026-11-08 17:00:00,2026-11-08 17:22:00,22,not_observed,0.0,,False
+Cow10,feeding,2026-11-08 17:22:00,2026-11-08 17:28:00,6,observed,0.89,"Cam 01,Cam 02,Cam 03",False
+Cow10,standing,2026-11-08 17:28:00,2026-11-08 17:29:00,1,observed,0.73,"Cam 01,Cam 02,Cam 03",False
+Cow10,feeding,2026-11-08 17:29:00,2026-11-08 17:39:00,10,observed,0.79,"Cam 01,Cam 02,Cam 03",False
+Cow10,standing,2026-11-08 17:39:00,2026-11-08 17:41:00,2,observed,0.8,"Cam 01,Cam 03",False
+Cow10,feeding,2026-11-08 17:41:00,2026-11-08 17:42:00,1,observed,0.71,Cam 03,False
+Cow10,standing,2026-11-08 17:42:00,2026-11-08 17:46:00,4,observed,0.95,"Cam 01,Cam 03",False
+Cow10,drinking,2026-11-08 17:46:00,2026-11-08 17:48:00,2,observed,0.5,"Cam 01,Cam 03",False
+Cow10,standing,2026-11-08 17:48:00,2026-11-08 17:51:00,3,observed,0.64,"Cam 01,Cam 03",False
+Cow10,drinking,2026-11-08 17:51:00,2026-11-08 17:55:00,4,observed,0.97,Cam 03,True
+Cow10,other_not_visible,2026-11-08 17:55:00,2026-11-08 17:57:00,2,not_observed,0.0,,False
+Cow10,standing,2026-11-08 17:57:00,2026-11-08 17:58:00,1,observed,0.67,Cam 03,True
+Cow10,social_interaction,2026-11-08 17:58:00,2026-11-08 17:59:00,1,estimated,0.73,Cam 03,True
+Cow10,lying,2026-11-08 17:59:00,2026-11-08 18:00:00,1,observed,0.56,Cam 03,True

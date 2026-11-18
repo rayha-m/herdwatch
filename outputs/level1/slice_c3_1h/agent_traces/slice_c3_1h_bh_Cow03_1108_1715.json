@@ -1,0 +1,179 @@
+{
+ "case": {
+  "case_id": "slice_c3_1h_bh_Cow03_1108_1715",
+  "kind": "behaviour",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 17:15:39.633333",
+  "box": [
+   "496",
+   "494",
+   "581",
+   "553"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.847457627118644,
+  "posture_prob_standing": 0.9021098793535285,
+  "cow": 3,
+  "minute": "2026-11-08 17:15:00",
+  "question": "What is Cow03 doing during this minute? Tracker says 'drinking' (sample votes: {'standing': 0.17, 'walking': 0.5, 'drinking': 0.33}).",
+  "context": "6 samples this minute; night=False; posture P(standing)=0.90"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE slice_c3_1h_bh_Cow03_1108_1715 (behaviour). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 17:15:39.633333.\nTracker context: 6 samples this minute; night=False; posture P(standing)=0.90\nQuestion: What is Cow03 doing during this minute? Tracker says 'drinking' (sample votes: {'standing': 0.17, 'walking': 0.5, 'drinking': 0.33}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       -8,
+       8,
+       20
+      ]
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 8,
+      "pad": 0.6
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset -8s (box shows the case-time position)",
+    "offset +8s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-20s.jpg",
+    "04_seq_-8s.jpg",
+    "05_seq_+8s.jpg",
+    "06_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_+8s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 25,
+      "pad": 0.6
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": -4,
+      "pad": 0.6
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "08_look_+25s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "09_look_-4s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 40,
+      "pad": 0.6
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "10_look_+40s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "drinking",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.8,
+      "evidence": "Zoomed views over time: at -4 s the cow walks toward the yellow waterer. At 0 and +8 s she stands next to it with her head beside the bowl. At +25 and +40 s her muzzle is down in the waterer bowl. The wide sequence shows she is not in the box at -20/-8 s and is at the waterer from +8 to +20 s.",
+      "self_check": "Checked several time offsets (-4, +8, +25, +40 s) plus the wide sequence. The muzzle stays in the waterer from about +25 to +40 s. The walking votes come from her approach early in the minute. I would be wrong if she was only nosing the bowl and not swallowing, which this resolution can't show. Ears and head looked normal; no discharge seen at this resolution."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "04:06:24",
+ "answer": {
+  "behavior": "drinking",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.8,
+  "evidence": "Zoomed views over time: at -4 s the cow walks toward the yellow waterer. At 0 and +8 s she stands next to it with her head beside the bowl. At +25 and +40 s her muzzle is down in the waterer bowl. The wide sequence shows she is not in the box at -20/-8 s and is at the waterer from +8 to +20 s.",
+  "self_check": "Checked several time offsets (-4, +8, +25, +40 s) plus the wide sequence. The muzzle stays in the waterer from about +25 to +40 s. The walking votes come from her approach early in the minute. I would be wrong if she was only nosing the bowl and not swallowing, which this resolution can't show. Ears and head looked normal; no discharge seen at this resolution.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 4
+}

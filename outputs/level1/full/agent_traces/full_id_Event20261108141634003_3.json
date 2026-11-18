@@ -1,0 +1,208 @@
+{
+ "case": {
+  "case_id": "full_id_Event20261108141634003_3",
+  "kind": "identity",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 14:17:20.600000",
+  "box": [
+   "571",
+   "570",
+   "693",
+   "648"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.05538041193778899,
+  "posture_prob_standing": 0.09114045171378907,
+  "track": "Event20261108141634003_3",
+  "question": "Which of the candidate cows (Cow10, Cow02, Cow03) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+  "context": "tracker assigned Cow10 with a small margin (0.03)",
+  "candidates": [
+   [
+    "Cow10",
+    "Cam 02",
+    "2026-11-07 14:11:56.166667",
+    [
+     "578",
+     "203",
+     "1140",
+     "695"
+    ]
+   ],
+   [
+    "Cow02",
+    "Cam 02",
+    "2026-11-07 13:37:47.266667",
+    [
+     "521",
+     "231",
+     "1023",
+     "720"
+    ]
+   ],
+   [
+    "Cow03",
+    "Cam 02",
+    "2026-11-07 17:07:42.266667",
+    [
+     "103",
+     "146",
+     "538",
+     "776"
+    ]
+   ]
+  ]
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_id_Event20261108141634003_3 (identity). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 14:17:20.600000.\nTracker context: tracker assigned Cow10 with a small margin (0.03)\nQuestion: Which of the candidate cows (Cow10, Cow02, Cow03) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow10",
+   "images": [
+    "03_cand_Cow10.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow02",
+   "images": [
+    "04_cand_Cow02.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow03",
+   "images": [
+    "05_cand_Cow03.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       0,
+       20
+      ]
+     }
+    },
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "06_seq_-20s.jpg",
+    "07_seq_+0s.jpg",
+    "08_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 0.38, \"peak_to_median\": 4.5, \"motion_energy\": 0.526, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 20
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 20,
+      "pad": 0.5
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 0.38, \"peak_to_median\": 4.8, \"motion_energy\": 0.236, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "09_look_+20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "lying",
+      "posture": "lying",
+      "same_cow_as_candidate": "Cow10 (unverified - no reference crops available)",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.2,
+      "evidence": "Boxed cow is the sternally recumbent white-faced (baldy, white blaze) cow with a pink tag in her right ear (head facing left), partly occluded at t=0 by a standing yellow-tagged black cow. Unoccluded at +20s, same spot, still lying, head up. Chew_check 0.38 Hz at 0 and +20s - not in rumination band. All three candidate reference crops were unavailable, so identity cannot be matched; Cow10 kept only as tracker prior.",
+      "self_check": "Verified posture/behaviour over -20/0/+20s sequence and zoomed +20s view; chew_check twice. Identity is the weak part: distinctive markers are white face + pink right-ear tag; if Cow10's records show a different tag colour or a plain black face, the ID is wrong. Behaviour confidence ~0.85, identity ~0.2."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:26:12",
+ "answer": {
+  "behavior": "lying",
+  "posture": "lying",
+  "same_cow_as_candidate": "Cow10 (unverified - no reference crops available)",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.2,
+  "evidence": "Boxed cow is the sternally recumbent white-faced (baldy, white blaze) cow with a pink tag in her right ear (head facing left), partly occluded at t=0 by a standing yellow-tagged black cow. Unoccluded at +20s, same spot, still lying, head up. Chew_check 0.38 Hz at 0 and +20s - not in rumination band. All three candidate reference crops were unavailable, so identity cannot be matched; Cow10 kept only as tracker prior.",
+  "self_check": "Verified posture/behaviour over -20/0/+20s sequence and zoomed +20s view; chew_check twice. Identity is the weak part: distinctive markers are white face + pink right-ear tag; if Cow10's records show a different tag colour or a plain black face, the ID is wrong. Behaviour confidence ~0.85, identity ~0.2.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

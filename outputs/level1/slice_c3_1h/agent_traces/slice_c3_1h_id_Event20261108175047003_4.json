@@ -1,0 +1,173 @@
+{
+ "case": {
+  "case_id": "slice_c3_1h_id_Event20261108175047003_4",
+  "kind": "identity",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 17:53:13.566667",
+  "box": [
+   "484",
+   "631",
+   "744",
+   "811"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.995219850156078,
+  "track": "Event20261108175047003_4",
+  "question": "Which of the candidate cows (Cow03, Cow01, Cow04) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+  "context": "tracker assigned Cow03 with a small margin (0.03)",
+  "candidates": [
+   [
+    "Cow03",
+    "Cam 03",
+    "2026-11-08 17:22:43.633333",
+    [
+     "478",
+     "503",
+     "604",
+     "583"
+    ]
+   ],
+   [
+    "Cow01",
+    "Cam 03",
+    "2026-11-08 17:06:07.633333",
+    [
+     "50",
+     "628",
+     "205",
+     "786"
+    ]
+   ],
+   [
+    "Cow04",
+    "Cam 03",
+    "2026-11-08 17:21:51.633333",
+    [
+     "333",
+     "606",
+     "637",
+     "788"
+    ]
+   ]
+  ]
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE slice_c3_1h_id_Event20261108175047003_4 (identity). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 17:53:13.566667.\nTracker context: tracker assigned Cow03 with a small margin (0.03)\nQuestion: Which of the candidate cows (Cow03, Cow01, Cow04) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow03",
+   "images": [
+    "03_cand_Cow03.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow01",
+   "images": [
+    "04_cand_Cow01.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow04",
+   "images": [
+    "05_cand_Cow04.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       0,
+       20
+      ]
+     }
+    },
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "06_seq_-20s.jpg",
+    "07_seq_+0s.jpg",
+    "08_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 3.14, \"peak_to_median\": 2.1, \"motion_energy\": 0.057, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "standing",
+      "posture": "standing",
+      "same_cow_as_candidate": "Cow03",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.35,
+      "evidence": "Dusk infrared grayscale footage. The boxed cow is standing and facing right. Her head is down and turned behind another cow's flank or rear, so the face is hidden. I can see one pale ear tag, but its colour can't be read in grayscale, so it can't separate the candidates: Cow01 has a green button plus a numbered tag, Cow04 has a red/white tag, and Cow03 has a light tag. She has no visible white markings. Her body is medium-large and solid, which fits Cow03 or Cow01. Her position stayed the same at -20 s, 0 s and +20 s. She is not at the bunk or the waterer.",
+      "self_check": "I checked her over time (-20, 0 and +20 s): she stayed stationary and standing. chew_check gave 3.14 Hz with peak_to_median 2.1, which is not rumination. My identity choice only follows the tracker's low-margin pick of Cow03. The grayscale frames don't show tag colour, so Cow01 or Cow04 are equally possible. A daylight frame or a readable tag would settle it. Her head being next to the other cow could mean social sniffing, but that wasn't clear, so I labelled her as standing."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "04:04:53",
+ "answer": {
+  "behavior": "standing",
+  "posture": "standing",
+  "same_cow_as_candidate": "Cow03",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.35,
+  "evidence": "Dusk infrared grayscale footage. The boxed cow is standing and facing right. Her head is down and turned behind another cow's flank or rear, so the face is hidden. I can see one pale ear tag, but its colour can't be read in grayscale, so it can't separate the candidates: Cow01 has a green button plus a numbered tag, Cow04 has a red/white tag, and Cow03 has a light tag. She has no visible white markings. Her body is medium-large and solid, which fits Cow03 or Cow01. Her position stayed the same at -20 s, 0 s and +20 s. She is not at the bunk or the waterer.",
+  "self_check": "I checked her over time (-20, 0 and +20 s): she stayed stationary and standing. chew_check gave 3.14 Hz with peak_to_median 2.1, which is not rumination. My identity choice only follows the tracker's low-margin pick of Cow03. The grayscale frames don't show tag colour, so Cow01 or Cow04 are equally possible. A daylight frame or a readable tag would settle it. Her head being next to the other cow could mean social sniffing, but that wasn't clear, so I labelled her as standing.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 2
+}

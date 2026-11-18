@@ -1,0 +1,178 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow10_1108_1456",
+  "kind": "behaviour",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 14:56:30.366667",
+  "box": [
+   "492",
+   "474",
+   "531",
+   "571"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.7319587628865979,
+  "posture_prob_standing": 0.9797405011506961,
+  "cow": 10,
+  "minute": "2026-11-08 14:56:00",
+  "question": "What is Cow10 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 1.0}).",
+  "context": "43 samples this minute; night=False; posture P(standing)=0.98"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow10_1108_1456 (behaviour). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 14:56:30.366667.\nTracker context: 43 samples this minute; night=False; posture P(standing)=0.98\nQuestion: What is Cow10 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 1.0}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -25,
+       -10,
+       10,
+       25
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -25s (box shows the case-time position)",
+    "offset -10s (box shows the case-time position)",
+    "offset +10s (box shows the case-time position)",
+    "offset +25s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-25s.jpg",
+    "04_seq_-10s.jpg",
+    "05_seq_+10s.jpg",
+    "06_seq_+25s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "Let me zoom at different offsets to see head position relative to waterer.",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": -20,
+      "pad": 0.6
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 20,
+      "pad": 0.6
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_-20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "08_look_+20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    },
+    {
+     "name": "look_other_camera",
+     "input": {
+      "camera": "Cam 01",
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 1.0, \"peak_to_median\": 1.7, \"motion_energy\": 0.803, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "tool",
+   "name": "look_other_camera",
+   "result": [],
+   "images": [
+    "09_other_Cam01.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "standing",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.6,
+      "evidence": "Cam 03 zooms at -20, 0, +20 s: Cow10 stands still beside the yellow waterer, which is at her left flank. Her head stays raised at the height of the top fence rail, turned right towards the fence, and her muzzle is never lowered into the waterer. Sequence -25..+25 s: no change in position. Cam 01: cow at the waterer/fence corner with head apparently raised. Chew_check: 1.0 Hz but peak/median 1.7, not rhythmic enough to call rumination. Ears up, normal head carriage.",
+      "self_check": "Checked multiple time offsets, a second camera (Cam 01) and chew_check. The tracker's 'drinking' label probably comes from her box overlapping the waterer zone. This would be wrong if she took short drinks between the frames I sampled. In the Cam 01 view her head is close to the waterer edge, so I can't fully exclude drinking."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:26:35",
+ "answer": {
+  "behavior": "standing",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.6,
+  "evidence": "Cam 03 zooms at -20, 0, +20 s: Cow10 stands still beside the yellow waterer, which is at her left flank. Her head stays raised at the height of the top fence rail, turned right towards the fence, and her muzzle is never lowered into the waterer. Sequence -25..+25 s: no change in position. Cam 01: cow at the waterer/fence corner with head apparently raised. Chew_check: 1.0 Hz but peak/median 1.7, not rhythmic enough to call rumination. Ears up, normal head carriage.",
+  "self_check": "Checked multiple time offsets, a second camera (Cam 01) and chew_check. The tracker's 'drinking' label probably comes from her box overlapping the waterer zone. This would be wrong if she took short drinks between the frames I sampled. In the Cam 01 view her head is close to the waterer edge, so I can't fully exclude drinking.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 4
+}

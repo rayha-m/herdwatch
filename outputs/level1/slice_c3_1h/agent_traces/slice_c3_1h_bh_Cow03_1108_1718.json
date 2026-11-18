@@ -1,0 +1,164 @@
+{
+ "case": {
+  "case_id": "slice_c3_1h_bh_Cow03_1108_1718",
+  "kind": "behaviour",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 17:18:03.633333",
+  "box": [
+   "456",
+   "486",
+   "510",
+   "527"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.6585365853658537,
+  "posture_prob_standing": 0.9653631118344719,
+  "cow": 3,
+  "minute": "2026-11-08 17:18:00",
+  "question": "What is Cow03 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 1.0}).",
+  "context": "1 samples this minute; night=False; posture P(standing)=0.97"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE slice_c3_1h_bh_Cow03_1108_1718 (behaviour). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 17:18:03.633333.\nTracker context: 1 samples this minute; night=False; posture P(standing)=0.97\nQuestion: What is Cow03 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 1.0}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       0,
+       20,
+       40
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)",
+    "offset +40s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-20s.jpg",
+    "04_seq_+0s.jpg",
+    "05_seq_+20s.jpg",
+    "06_seq_+40s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 30,
+      "pad": 0.5
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_+30s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": -15,
+      "pad": 0.5
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 15,
+      "pad": 0.5
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "08_look_-15s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "09_look_+15s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "drinking",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.6,
+      "evidence": "In the zoomed crop at the case time (0 s), the cow is standing at the yellow waterer inside the blue waterer zone, with her head lowered and her muzzle at the trough. At -15 s her head is held level just above the waterer, and she is at the waterer from -20 s to 0 s. At +15 s and +30 s she is still right next to the waterer, but her head is up and turned to the right, away from the trough. She stays in the same spot all minute and does not walk. Her ears are carried normally and her head is not held low. The resolution is too low to judge discharge.",
+      "self_check": "I checked the case-time crop against close-up crops at -15, +15 and +30 s and against wide frames at -20, 0, +20 and +40 s. They agree that she is standing at the waterer. Her muzzle is only clearly at the water in the first half of the minute. If the second half was mostly spent standing with her head up, 'standing' could be the better label for this minute, so my confidence is moderate. I did not run chew_check because I am not claiming rumination."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "04:05:36",
+ "answer": {
+  "behavior": "drinking",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.6,
+  "evidence": "In the zoomed crop at the case time (0 s), the cow is standing at the yellow waterer inside the blue waterer zone, with her head lowered and her muzzle at the trough. At -15 s her head is held level just above the waterer, and she is at the waterer from -20 s to 0 s. At +15 s and +30 s she is still right next to the waterer, but her head is up and turned to the right, away from the trough. She stays in the same spot all minute and does not walk. Her ears are carried normally and her head is not held low. The resolution is too low to judge discharge.",
+  "self_check": "I checked the case-time crop against close-up crops at -15, +15 and +30 s and against wide frames at -20, 0, +20 and +40 s. They agree that she is standing at the waterer. Her muzzle is only clearly at the water in the first half of the minute. If the second half was mostly spent standing with her head up, 'standing' could be the better label for this minute, so my confidence is moderate. I did not run chew_check because I am not claiming rumination.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 4
+}

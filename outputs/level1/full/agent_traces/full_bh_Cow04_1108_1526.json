@@ -1,0 +1,154 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow04_1108_1526",
+  "kind": "behaviour",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 15:26:28.966667",
+  "box": [
+   "388",
+   "503",
+   "437",
+   "590"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.9967159277504105,
+  "posture_prob_standing": 0.8902936263328695,
+  "cow": 4,
+  "minute": "2026-11-08 15:26:00",
+  "question": "What is Cow04 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 1.0}).",
+  "context": "31 samples this minute; night=False; posture P(standing)=0.89"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow04_1108_1526 (behaviour). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 15:26:28.966667.\nTracker context: 31 samples this minute; night=False; posture P(standing)=0.89\nQuestion: What is Cow04 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 1.0}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       0,
+       20
+      ]
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 15,
+      "pad": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-20s.jpg",
+    "04_seq_+0s.jpg",
+    "05_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "06_look_+15s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": -15,
+      "pad": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 0.5, \"peak_to_median\": 3.2, \"motion_energy\": 0.108, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_-15s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "standing",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.72,
+      "evidence": "Cow04 stands inside the waterer zone box, seen from behind, but her head is up at about back height and faces the gate/fence. The yellow waterer is roughly a body-width to her right, and her muzzle is never at it in the zoomed views at -15 s, 0 s and +15 s. Her position stays the same across the frames at -20 s, 0 s and +20 s, so she is not walking. chew_check gave 0.5 Hz with a peak-to-median ratio of 3.2, which is not a chewing rhythm.",
+      "self_check": "I checked three time offsets in zoomed views, plus the full-frame sequence and the chew test. The tracker's 'drinking' label probably comes from her box sitting inside the waterer zone. I would be wrong if she lowered her head to the waterer between the frames I sampled. Because her head faces away from the camera, I can't rule out short sips, and I could not check ears or nostrils closely."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:26:41",
+ "answer": {
+  "behavior": "standing",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.72,
+  "evidence": "Cow04 stands inside the waterer zone box, seen from behind, but her head is up at about back height and faces the gate/fence. The yellow waterer is roughly a body-width to her right, and her muzzle is never at it in the zoomed views at -15 s, 0 s and +15 s. Her position stays the same across the frames at -20 s, 0 s and +20 s, so she is not walking. chew_check gave 0.5 Hz with a peak-to-median ratio of 3.2, which is not a chewing rhythm.",
+  "self_check": "I checked three time offsets in zoomed views, plus the full-frame sequence and the chew test. The tracker's 'drinking' label probably comes from her box sitting inside the waterer zone. I would be wrong if she lowered her head to the waterer between the frames I sampled. Because her head faces away from the camera, I can't rule out short sips, and I could not check ears or nostrils closely.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

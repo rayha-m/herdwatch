@@ -1,0 +1,161 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow05_1107_1748",
+  "kind": "behaviour",
+  "cam": "Cam 03",
+  "ts": "2026-11-07 17:48:22.600000",
+  "box": [
+   "499",
+   "508",
+   "554",
+   "595"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 1.0,
+  "posture_prob_standing": 0.9953033643313464,
+  "cow": 5,
+  "minute": "2026-11-07 17:48:00",
+  "question": "What is Cow05 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 0.82, 'standing': 0.14, 'social_interaction': 0.05}).",
+  "context": "22 samples this minute; night=False; posture P(standing)=1.00"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow05_1107_1748 (behaviour). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-07 17:48:22.600000.\nTracker context: 22 samples this minute; night=False; posture P(standing)=1.00\nQuestion: What is Cow05 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 0.82, 'standing': 0.14, 'social_interaction': 0.05}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       0,
+       20
+      ]
+     }
+    },
+    {
+     "name": "look_other_camera",
+     "input": {
+      "camera": "Cam 01",
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-20s.jpg",
+    "04_seq_+0s.jpg",
+    "05_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_other_camera",
+   "result": [],
+   "images": [
+    "06_other_Cam01.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 10,
+      "pad": 0.8
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_+10s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_other_camera",
+     "input": {
+      "camera": "Cam 01",
+      "offset_s": -20
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_other_camera",
+   "result": [],
+   "images": [
+    "08_other_Cam01.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "drinking",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.65,
+      "evidence": "On Cam 03 Cow05 stood right next to the yellow waterer from -20 s to 0 s. The camera sees her from behind, so her muzzle is hidden. On Cam 01, at both -20 s and 0 s, a cow had her head lowered at the waterer inside the waterer zone. By +10 s Cow05 had moved off to the right, and by +20 s she was gone from the waterer. Tracker votes were 82% drinking.",
+      "self_check": "I checked her position over time (-20, 0, +10 and +20 s) and looked at Cam 01 at -20 s and 0 s. The answer is wrong if the head-down cow on Cam 01 is a different animal, or if Cow05 was only standing beside the waterer and later left. Her muzzle was never directly visible on Cam 03, and she left part way through the minute. Because she was seen from behind, I could not judge her ears, nose or flank."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:26:49",
+ "answer": {
+  "behavior": "drinking",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.65,
+  "evidence": "On Cam 03 Cow05 stood right next to the yellow waterer from -20 s to 0 s. The camera sees her from behind, so her muzzle is hidden. On Cam 01, at both -20 s and 0 s, a cow had her head lowered at the waterer inside the waterer zone. By +10 s Cow05 had moved off to the right, and by +20 s she was gone from the waterer. Tracker votes were 82% drinking.",
+  "self_check": "I checked her position over time (-20, 0, +10 and +20 s) and looked at Cam 01 at -20 s and 0 s. The answer is wrong if the head-down cow on Cam 01 is a different animal, or if Cow05 was only standing beside the waterer and later left. Her muzzle was never directly visible on Cam 03, and she left part way through the minute. Because she was seen from behind, I could not judge her ears, nose or flank.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 4
+}

@@ -1,0 +1,182 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow06_1108_0458",
+  "kind": "behaviour_night",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 04:58:24.666667",
+  "box": [
+   "524",
+   "572",
+   "745",
+   "704"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.06382832853421089,
+  "posture_prob_standing": 0.9851870776832885,
+  "cow": 6,
+  "minute": "2026-11-08 04:58:00",
+  "question": "What is Cow06 doing during this minute? Tracker says 'social_interaction' (sample votes: {'standing': 0.33, 'social_interaction': 0.67}).",
+  "context": "3 samples this minute; night=True; posture P(standing)=0.99"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow06_1108_0458 (behaviour_night). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 04:58:24.666667.\nTracker context: 3 samples this minute; night=True; posture P(standing)=0.99\nQuestion: What is Cow06 doing during this minute? Tracker says 'social_interaction' (sample votes: {'standing': 0.33, 'social_interaction': 0.67}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       0,
+       20
+      ]
+     }
+    },
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-20s.jpg",
+    "04_seq_+0s.jpg",
+    "05_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 1.26, \"peak_to_median\": 1.9, \"motion_energy\": 2.746, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "lying",
+      "posture": "lying",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.45,
+      "evidence": "IR night footage. The box is flagged '?' (identity uncertain) and contains two cows lying side by side: a black cow behind and a white-faced cow in front, both sternal. Neither moves at -20, 0 or +20 s. Their heads are not touching and there is no butting, licking or mounting, so I saw no social interaction. A standing cow at the right edge of the box is mostly outside it; she walks up and lies down by +20 s. She is probably what triggered the tracker's 'standing' (P=0.99) and 'social' votes. Chew check: 1.26 Hz but peak-to-median only 1.9 (below 4), so this is not good evidence of rumination.",
+      "self_check": "Checked three time points across the minute and ran a chew check. Biggest risk: identity. The box overlaps several cows, so if Cow06 is really the cow at the right edge, she stood, sniffed the lying pair and then lay down. That would make her 'standing', or briefly 'social_interaction'. At night I can't judge ears, nose or flank, so clinical signs are not assessable."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "SELF-CHECK FAILED: the posture model is >90% sure this cow is standing. Look again (different offset or camera) and resubmit; keep your answer only if the new evidence clearly supports it."
+   ],
+   "images": []
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": -10,
+      "pad": 0.6
+     }
+    },
+    {
+     "name": "look_other_camera",
+     "input": {
+      "camera": "Cam 01",
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "06_look_-10s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_other_camera",
+   "result": [],
+   "images": [
+    "07_other_Cam01.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "social_interaction",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.45,
+      "evidence": "IR night footage, box flagged '?' (identity uncertain). The posture model says >90% standing. The only standing cow at this box is the one at its right edge, so I now take her to be Cow06, not one of the two cows lying in the box. In the zoomed view at -10 s she stands with her head lowered and her muzzle against the hindquarters of the lying white-faced cow, which looks like nosing or sniffing. At 0 s she is still standing next to the pair, and by +20 s she has lain down beside them. The tracker voted social_interaction in 2 of 3 samples. Cam 01 faces the wrong way and doesn't show this group.",
+      "self_check": "Checked offsets -20, -10, 0 and +20 s on Cam 03 and tried Cam 01 (not useful). The chew check was weak (peak-to-median 1.9), so not rumination. The answer would be wrong if Cow06 is really one of the lying cows (then 'lying'). It would also be wrong if the muzzle contact was brief and she spent most of the minute just standing or lying down (then 'standing'). At night I couldn't judge clinical signs."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:27:35",
+ "answer": {
+  "behavior": "social_interaction",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.45,
+  "evidence": "IR night footage, box flagged '?' (identity uncertain). The posture model says >90% standing. The only standing cow at this box is the one at its right edge, so I now take her to be Cow06, not one of the two cows lying in the box. In the zoomed view at -10 s she stands with her head lowered and her muzzle against the hindquarters of the lying white-faced cow, which looks like nosing or sniffing. At 0 s she is still standing next to the pair, and by +20 s she has lain down beside them. The tracker voted social_interaction in 2 of 3 samples. Cam 01 faces the wrong way and doesn't show this group.",
+  "self_check": "Checked offsets -20, -10, 0 and +20 s on Cam 03 and tried Cam 01 (not useful). The chew check was weak (peak-to-median 1.9), so not rumination. The answer would be wrong if Cow06 is really one of the lying cows (then 'lying'). It would also be wrong if the muzzle contact was brief and she spent most of the minute just standing or lying down (then 'standing'). At night I couldn't judge clinical signs.",
+  "geometry_issues": [],
+  "rechecked": true
+ },
+ "rounds": 4
+}

@@ -1,0 +1,143 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow03_1108_1202",
+  "kind": "behaviour",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 12:02:31.566667",
+  "box": [
+   "458",
+   "487",
+   "573",
+   "577"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.8544927536231884,
+  "posture_prob_standing": 0.9941339556752066,
+  "cow": 3,
+  "minute": "2026-11-08 12:02:00",
+  "question": "What is Cow03 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 1.0}).",
+  "context": "30 samples this minute; night=False; posture P(standing)=0.99"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow03_1108_1202 (behaviour). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 12:02:31.566667.\nTracker context: 30 samples this minute; night=False; posture P(standing)=0.99\nQuestion: What is Cow03 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 1.0}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "I'll check whether her head stays at the waterer across the minute.",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -25,
+       -10,
+       10,
+       25
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -25s (box shows the case-time position)",
+    "offset -10s (box shows the case-time position)",
+    "offset +10s (box shows the case-time position)",
+    "offset +25s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-25s.jpg",
+    "04_seq_-10s.jpg",
+    "05_seq_+10s.jpg",
+    "06_seq_+25s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "Later frames suggest she may have turned away from the waterer. I'll zoom in on those.",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 12,
+      "pad": 0.4
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 25,
+      "pad": 0.4
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_+12s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "08_look_+25s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "drinking",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.88,
+      "evidence": "Case crop: Cow03 standing at the yellow waterer, head lowered over the bowl. Sequence at -25/-10/+10/+25 s: same spot at the waterer the whole minute, no walking. Zoom at +12 s: muzzle down in the waterer. At +25 s: head raised to about bowl height but still facing the waterer, consistent with a short pause between drinks.",
+      "self_check": "Checked several time offsets with zoomed crops; she stayed at the waterer with her muzzle at it in most frames. No other camera was checked. Would be wrong if she spent most of the minute standing head-up and only drank briefly, but the frames don't show that. Head lowered only to drink, flank normal, herd lying nearby; ears, nose, eyes and breathing can't be judged at this distance."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:27:00",
+ "answer": {
+  "behavior": "drinking",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.88,
+  "evidence": "Case crop: Cow03 standing at the yellow waterer, head lowered over the bowl. Sequence at -25/-10/+10/+25 s: same spot at the waterer the whole minute, no walking. Zoom at +12 s: muzzle down in the waterer. At +25 s: head raised to about bowl height but still facing the waterer, consistent with a short pause between drinks.",
+  "self_check": "Checked several time offsets with zoomed crops; she stayed at the waterer with her muzzle at it in most frames. No other camera was checked. Would be wrong if she spent most of the minute standing head-up and only drank briefly, but the frames don't show that. Head lowered only to drink, flank normal, herd lying nearby; ears, nose, eyes and breathing can't be judged at this distance.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

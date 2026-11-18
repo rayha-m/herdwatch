@@ -1,0 +1,121 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow07_1107_2040",
+  "kind": "behaviour_night",
+  "cam": "Cam 03",
+  "ts": "2026-11-07 20:40:30.566667",
+  "box": [
+   "766",
+   "655",
+   "924",
+   "779"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.592391705397094,
+  "cow": 7,
+  "minute": "2026-11-07 20:40:00",
+  "question": "What is Cow07 doing during this minute? Tracker says 'social_interaction' (sample votes: {'standing': 0.1, 'lying': 0.3, 'social_interaction': 0.6}).",
+  "context": "30 samples this minute; night=True; posture P(standing)=0.59"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow07_1107_2040 (behaviour_night). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-07 20:40:30.566667.\nTracker context: 30 samples this minute; night=True; posture P(standing)=0.59\nQuestion: What is Cow07 doing during this minute? Tracker says 'social_interaction' (sample votes: {'standing': 0.1, 'lying': 0.3, 'social_interaction': 0.6}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -25,
+       -10,
+       10,
+       25
+      ]
+     }
+    },
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -25s (box shows the case-time position)",
+    "offset -10s (box shows the case-time position)",
+    "offset +10s (box shows the case-time position)",
+    "offset +25s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-25s.jpg",
+    "04_seq_-10s.jpg",
+    "05_seq_+10s.jpg",
+    "06_seq_+25s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 0.5, \"peak_to_median\": 7.0, \"motion_energy\": 0.11, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "lying",
+      "posture": "lying",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.6,
+      "evidence": "In the zoomed IR crop, the box covers two cows lying close together against the right fence. The back cow has a white face patch and the front cow is tagged. Both are lying sternally with their legs folded. In the frames from -25 s to +25 s, neither cow changes position, and I saw no butting, licking or mounting. The tracker's 'social_interaction' label is most likely caused by the two overlapping cows. chew_check found a strong rhythmic peak at 0.5 Hz, which is below the 0.7\u20131.4 Hz rumination range, so I did not label her as ruminating.",
+      "self_check": "I checked four time offsets across the minute and ran chew_check. This would be wrong if the 0.5 Hz rhythm is actually slow cud chewing (then the label would be ruminating_lying). It would also be wrong if the two cows briefly licked each other between my samples. The box covers both cows, so I am not certain which one is Cow07, but both were lying the whole time. Night IR footage means I could not assess clinical signs."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:27:19",
+ "answer": {
+  "behavior": "lying",
+  "posture": "lying",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.6,
+  "evidence": "In the zoomed IR crop, the box covers two cows lying close together against the right fence. The back cow has a white face patch and the front cow is tagged. Both are lying sternally with their legs folded. In the frames from -25 s to +25 s, neither cow changes position, and I saw no butting, licking or mounting. The tracker's 'social_interaction' label is most likely caused by the two overlapping cows. chew_check found a strong rhythmic peak at 0.5 Hz, which is below the 0.7\u20131.4 Hz rumination range, so I did not label her as ruminating.",
+  "self_check": "I checked four time offsets across the minute and ran chew_check. This would be wrong if the 0.5 Hz rhythm is actually slow cud chewing (then the label would be ruminating_lying). It would also be wrong if the two cows briefly licked each other between my samples. The box covers both cows, so I am not certain which one is Cow07, but both were lying the whole time. Night IR footage means I could not assess clinical signs.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 2
+}

@@ -1,0 +1,173 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow09_1107_1911",
+  "kind": "behaviour_night",
+  "cam": "Cam 03",
+  "ts": "2026-11-07 19:11:34.633333",
+  "box": [
+   "839",
+   "606",
+   "886",
+   "696"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.8761197144447308,
+  "cow": 9,
+  "minute": "2026-11-07 19:11:00",
+  "question": "What is Cow09 doing during this minute? Tracker says 'social_interaction' (sample votes: {'standing': 0.33, 'social_interaction': 0.67}).",
+  "context": "3 samples this minute; night=True; posture P(standing)=0.88"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow09_1107_1911 (behaviour_night). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-07 19:11:34.633333.\nTracker context: 3 samples this minute; night=True; posture P(standing)=0.88\nQuestion: What is Cow09 doing during this minute? Tracker says 'social_interaction' (sample votes: {'standing': 0.33, 'social_interaction': 0.67}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       0,
+       20
+      ]
+     }
+    },
+    {
+     "name": "look_other_camera",
+     "input": {
+      "camera": "Cam 01",
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-20s.jpg",
+    "04_seq_+0s.jpg",
+    "05_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_other_camera",
+   "result": [],
+   "images": [
+    "06_other_Cam01.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 20,
+      "pad": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_+20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -10,
+       8,
+       14,
+       28
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -10s (box shows the case-time position)",
+    "offset +8s (box shows the case-time position)",
+    "offset +14s (box shows the case-time position)",
+    "offset +28s (box shows the case-time position)"
+   ],
+   "images": [
+    "08_seq_-10s.jpg",
+    "09_seq_+8s.jpg",
+    "10_seq_+14s.jpg",
+    "11_seq_+28s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "standing",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.4,
+      "evidence": "Night IR on Cam 03. The cow's box sits inside a washed-out lens-smear patch, so detail is very poor. Frames from -20s to +8s show a dark cow standing at the right edge of the box, with legs visible and her body next to a lying cow. By +14s, +20s and +28s she has lain down (zoomed look at +20s shows a lying shape). Her head is near the lying neighbour's head, but I could not make out any butting, licking or head-to-head pushing. Cam 01 does not show this area usefully.",
+      "self_check": "I checked five time offsets and a zoom at +20s. She stands for about the first 2/3 of the minute and lies down at about +10s, so 'standing' only narrowly beats 'lying'. The tracker's social_interaction vote probably comes from her being close to the neighbour cow, but the image cannot confirm any contact behaviour. This answer would be wrong if the minute window is set later (then lying is the majority), or if real head contact happened that the smear hid. I did not run chew_check because the smeared region is unreadable."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:27:06",
+ "answer": {
+  "behavior": "standing",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.4,
+  "evidence": "Night IR on Cam 03. The cow's box sits inside a washed-out lens-smear patch, so detail is very poor. Frames from -20s to +8s show a dark cow standing at the right edge of the box, with legs visible and her body next to a lying cow. By +14s, +20s and +28s she has lain down (zoomed look at +20s shows a lying shape). Her head is near the lying neighbour's head, but I could not make out any butting, licking or head-to-head pushing. Cam 01 does not show this area usefully.",
+  "self_check": "I checked five time offsets and a zoom at +20s. She stands for about the first 2/3 of the minute and lies down at about +10s, so 'standing' only narrowly beats 'lying'. The tracker's social_interaction vote probably comes from her being close to the neighbour cow, but the image cannot confirm any contact behaviour. This answer would be wrong if the minute window is set later (then lying is the majority), or if real head contact happened that the smear hid. I did not run chew_check because the smeared region is unreadable.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 4
+}

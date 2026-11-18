@@ -1,0 +1,118 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow06_1107_2051",
+  "kind": "behaviour_night",
+  "cam": "Cam 03",
+  "ts": "2026-11-07 20:51:23.633333",
+  "box": [
+   "740",
+   "659",
+   "922",
+   "774"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.7071982769011284,
+  "cow": 6,
+  "minute": "2026-11-07 20:51:00",
+  "question": "What is Cow06 doing during this minute? Tracker says 'social_interaction' (sample votes: {'standing': 0.29, 'lying': 0.04, 'social_interaction': 0.67}).",
+  "context": "24 samples this minute; night=True; posture P(standing)=0.71"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow06_1107_2051 (behaviour_night). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-07 20:51:23.633333.\nTracker context: 24 samples this minute; night=True; posture P(standing)=0.71\nQuestion: What is Cow06 doing during this minute? Tracker says 'social_interaction' (sample votes: {'standing': 0.29, 'lying': 0.04, 'social_interaction': 0.67}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -25,
+       0,
+       25
+      ]
+     }
+    },
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -25s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +25s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-25s.jpg",
+    "04_seq_+0s.jpg",
+    "05_seq_+25s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 0.38, \"peak_to_median\": 2.3, \"motion_energy\": 0.046, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "lying",
+      "posture": "lying",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.72,
+      "evidence": "The zoomed IR crop shows the cow in the box, which has a white face and is marked by the '?' label, lying on her sternum with her legs folded. A second cow is lying right next to her, pressed against her side. In the frames at -25 s, 0 s and +25 s, both cows stay lying in the same position with no butting, licking or head-to-head contact. The 'social_interaction' votes most likely come from the two cows being so close that the box covers both. The chew test found no rumination: 0.38 Hz with a peak-to-median ratio of 2.3, below the threshold.",
+      "self_check": "I checked the whole-pen frames over about 50 s and ran the chew test; the posture and position did not change. Two things could make this wrong. First, it is uncertain which of the two cows in the box is Cow06, but both are lying still, so the label would be the same either way. Second, the IR image is grainy, so the chew test could have missed slow chewing. Clinical signs could not be assessed in the night IR footage."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:27:50",
+ "answer": {
+  "behavior": "lying",
+  "posture": "lying",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.72,
+  "evidence": "The zoomed IR crop shows the cow in the box, which has a white face and is marked by the '?' label, lying on her sternum with her legs folded. A second cow is lying right next to her, pressed against her side. In the frames at -25 s, 0 s and +25 s, both cows stay lying in the same position with no butting, licking or head-to-head contact. The 'social_interaction' votes most likely come from the two cows being so close that the box covers both. The chew test found no rumination: 0.38 Hz with a peak-to-median ratio of 2.3, below the threshold.",
+  "self_check": "I checked the whole-pen frames over about 50 s and ran the chew test; the posture and position did not change. Two things could make this wrong. First, it is uncertain which of the two cows in the box is Cow06, but both are lying still, so the label would be the same either way. Second, the IR image is grainy, so the chew test could have missed slow chewing. Clinical signs could not be assessed in the night IR footage.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 2
+}

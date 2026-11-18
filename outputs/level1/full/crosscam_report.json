@@ -1,0 +1,41 @@
+{
+ "Cam 01": {
+  "fit": [
+   {
+    "iter": 0,
+    "pairs": 1448,
+    "inliers": 1099,
+    "median_px": 20.781571872027136
+   },
+   {
+    "iter": 1,
+    "pairs": 2101,
+    "inliers": 1816,
+    "median_px": 19.721020829812055
+   },
+   {
+    "iter": 2,
+    "pairs": 3215,
+    "inliers": 2894,
+    "median_px": 21.489172492295232
+   },
+   {
+    "iter": 3,
+    "pairs": 3012,
+    "inliers": 2820,
+    "median_px": 19.617796839326658
+   }
+  ],
+  "tracklets": 6291,
+  "linked": 2027
+ },
+ "Cam 02": {
+  "candidate_pairs": 59964,
+  "inliers": 13044,
+  "slope": 0.8574277934995623,
+  "intercept": 301.6592444054256,
+  "ref": "Cam 01",
+  "linked": 507,
+  "tracklets": 1893
+ }
+}

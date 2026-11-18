@@ -1,0 +1,173 @@
+{
+ "case": {
+  "case_id": "full_id_Event20261108135632003_1",
+  "kind": "identity",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 13:59:06.600000",
+  "box": [
+   "106",
+   "640",
+   "306",
+   "806"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.32457955562218366,
+  "track": "Event20261108135632003_1",
+  "question": "Which of the candidate cows (Cow03, Cow02, Cow06) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+  "context": "tracker assigned Cow03 with a small margin (0.23)",
+  "candidates": [
+   [
+    "Cow03",
+    "Cam 02",
+    "2026-11-07 17:07:42.266667",
+    [
+     "103",
+     "146",
+     "538",
+     "776"
+    ]
+   ],
+   [
+    "Cow02",
+    "Cam 02",
+    "2026-11-07 13:37:47.266667",
+    [
+     "521",
+     "231",
+     "1023",
+     "720"
+    ]
+   ],
+   [
+    "Cow06",
+    "Cam 02",
+    "2026-11-08 17:21:10.166667",
+    [
+     "671",
+     "195",
+     "1189",
+     "756"
+    ]
+   ]
+  ]
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_id_Event20261108135632003_1 (identity). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 13:59:06.600000.\nTracker context: tracker assigned Cow03 with a small margin (0.23)\nQuestion: Which of the candidate cows (Cow03, Cow02, Cow06) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow03",
+   "images": [
+    "03_cand_Cow03.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow02",
+   "images": [
+    "04_cand_Cow02.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow06",
+   "images": [
+    "05_cand_Cow06.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "Reference crops are unavailable, so identity can't be compared directly. I'll check the behaviour over time and run a chew check.",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -30,
+       0,
+       30
+      ]
+     }
+    },
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -30s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +30s (box shows the case-time position)"
+   ],
+   "images": [
+    "06_seq_-30s.jpg",
+    "07_seq_+0s.jpg",
+    "08_seq_+30s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 0.75, \"peak_to_median\": 2.9, \"motion_energy\": 0.198, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "lying",
+      "posture": "lying",
+      "same_cow_as_candidate": "Cow03",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.35,
+      "evidence": "Zoomed crop: solid black Angus cow with a pink ear tag in her upper ear (left ear, as she is lying on her right side). No white markings stand out. At 0 s she is lying flat on her side with her legs stretched out. At -30 s and +30 s she is lying on her chest with her head up, in the same spot at the front-left of the pen, away from the bunk and the waterer. Chew check: 0.75 Hz but peak ratio only 2.9, below the 4 needed to call chewing. All candidate reference images were unavailable, so I could not check tag colour, ear or body against them.",
+      "self_check": "Checked the posture at -30, 0 and +30 s: lying the whole time and not moving across the pen. The chew check does not support rumination. The identity is the tracker's low-margin guess (Cow03), not my own match. It would be wrong if Cow02 or Cow06 also wears a pink tag in the left ear. A reference image showing the candidates' tags would settle it. Lying flat on her side is normal resting here, as she is upright on her chest at the other two times. The camera is too far away to judge discharge or breathing."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:25:02",
+ "answer": {
+  "behavior": "lying",
+  "posture": "lying",
+  "same_cow_as_candidate": "Cow03",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.35,
+  "evidence": "Zoomed crop: solid black Angus cow with a pink ear tag in her upper ear (left ear, as she is lying on her right side). No white markings stand out. At 0 s she is lying flat on her side with her legs stretched out. At -30 s and +30 s she is lying on her chest with her head up, in the same spot at the front-left of the pen, away from the bunk and the waterer. Chew check: 0.75 Hz but peak ratio only 2.9, below the 4 needed to call chewing. All candidate reference images were unavailable, so I could not check tag colour, ear or body against them.",
+  "self_check": "Checked the posture at -30, 0 and +30 s: lying the whole time and not moving across the pen. The chew check does not support rumination. The identity is the tracker's low-margin guess (Cow03), not my own match. It would be wrong if Cow02 or Cow06 also wears a pink tag in the left ear. A reference image showing the candidates' tags would settle it. Lying flat on her side is normal resting here, as she is upright on her chest at the other two times. The camera is too far away to judge discharge or breathing.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 2
+}

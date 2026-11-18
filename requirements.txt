@@ -1,0 +1,12 @@
+anthropic==0.125.0
+lap==0.5.14
+matplotlib==3.9.4
+numpy==1.26.4
+opencv-python-headless==4.11.0.86
+pandas==2.3.3
+pyarrow==21.0.0
+scikit-learn==1.6.1
+scipy==1.13.1
+torch==2.8.0
+torchvision==0.23.0
+ultralytics==8.4.213

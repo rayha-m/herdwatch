@@ -1,0 +1,198 @@
+{
+ "case": {
+  "case_id": "slice_c3_1h_id_Event20261108175047003_1",
+  "kind": "identity",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 17:53:13.566667",
+  "box": [
+   "707",
+   "672",
+   "897",
+   "817"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.9825558133483057,
+  "track": "Event20261108175047003_1",
+  "question": "Which of the candidate cows (Cow01, Cow03, Cow04) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+  "context": "tracker assigned Cow01 with a small margin (0.08)",
+  "candidates": [
+   [
+    "Cow01",
+    "Cam 03",
+    "2026-11-08 17:06:07.633333",
+    [
+     "50",
+     "628",
+     "205",
+     "786"
+    ]
+   ],
+   [
+    "Cow03",
+    "Cam 03",
+    "2026-11-08 17:22:43.633333",
+    [
+     "478",
+     "503",
+     "604",
+     "583"
+    ]
+   ],
+   [
+    "Cow04",
+    "Cam 03",
+    "2026-11-08 17:21:51.633333",
+    [
+     "333",
+     "606",
+     "637",
+     "788"
+    ]
+   ]
+  ]
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE slice_c3_1h_id_Event20261108175047003_1 (identity). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 17:53:13.566667.\nTracker context: tracker assigned Cow01 with a small margin (0.08)\nQuestion: Which of the candidate cows (Cow01, Cow03, Cow04) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow01",
+   "images": [
+    "03_cand_Cow01.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow03",
+   "images": [
+    "04_cand_Cow03.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow04",
+   "images": [
+    "05_cand_Cow04.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       -8,
+       8,
+       20
+      ]
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 8,
+      "pad": 0.6
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset -8s (box shows the case-time position)",
+    "offset +8s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "06_seq_-20s.jpg",
+    "07_seq_-8s.jpg",
+    "08_seq_+8s.jpg",
+    "09_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "10_look_+8s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_other_camera",
+     "input": {
+      "camera": "Cam 01",
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_other_camera",
+   "result": [],
+   "images": [
+    "11_other_Cam01.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "standing",
+      "posture": "standing",
+      "same_cow_as_candidate": "Cow03",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.3,
+      "evidence": "This is dusk infrared footage in grayscale, so tag colour (green, white or red) can't be read. The boxed cow faces left, and her head overlaps the head of the cow next to her. One bright tag shows where the two heads meet, but I can't tell which cow it belongs to. There is a small bright spot near her front leg / brisket. She is compact and shorter-bodied. In the reference crops, Cow01 has a numbered tag plus a button tag and looks like a large cow, and Cow03 has a single pale tag and a smaller frame. Those two points lean very weakly toward Cow03. Frames from -20 s to +20 s show she stays in the same spot, standing on all four legs with her head beside the other cow's head. Nothing showed licking or butting, and there was no feed or water in front of her.",
+      "self_check": "I checked her over time with a look_sequence (-20, -8, +8, +20 s) and a zoomed view at +8 s, which confirmed she stays standing in the same place. Cam 01 was too dark and wide to pick her out. I did not run chew_check, so I can't rule out rumination. Her identity is basically unresolved: IR hides tag colour, and the one tag I can see may belong to the cow beside her. Cow01, the tracker's choice, is about as likely as Cow03. If her head is actually touching the other cow's (licking), the behaviour label should be social_interaction."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "04:05:12",
+ "answer": {
+  "behavior": "standing",
+  "posture": "standing",
+  "same_cow_as_candidate": "Cow03",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.3,
+  "evidence": "This is dusk infrared footage in grayscale, so tag colour (green, white or red) can't be read. The boxed cow faces left, and her head overlaps the head of the cow next to her. One bright tag shows where the two heads meet, but I can't tell which cow it belongs to. There is a small bright spot near her front leg / brisket. She is compact and shorter-bodied. In the reference crops, Cow01 has a numbered tag plus a button tag and looks like a large cow, and Cow03 has a single pale tag and a smaller frame. Those two points lean very weakly toward Cow03. Frames from -20 s to +20 s show she stays in the same spot, standing on all four legs with her head beside the other cow's head. Nothing showed licking or butting, and there was no feed or water in front of her.",
+  "self_check": "I checked her over time with a look_sequence (-20, -8, +8, +20 s) and a zoomed view at +8 s, which confirmed she stays standing in the same place. Cam 01 was too dark and wide to pick her out. I did not run chew_check, so I can't rule out rumination. Her identity is basically unresolved: IR hides tag colour, and the one tag I can see may belong to the cow beside her. Cow01, the tracker's choice, is about as likely as Cow03. If her head is actually touching the other cow's (licking), the behaviour label should be social_interaction.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

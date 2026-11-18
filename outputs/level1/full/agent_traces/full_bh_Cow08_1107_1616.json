@@ -1,0 +1,104 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow08_1107_1616",
+  "kind": "behaviour",
+  "cam": "Cam 03",
+  "ts": "2026-11-07 16:16:31.666667",
+  "box": [
+   "486",
+   "494",
+   "574",
+   "559"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.9034965034965035,
+  "posture_prob_standing": 0.9962420613699007,
+  "cow": 8,
+  "minute": "2026-11-07 16:16:00",
+  "question": "What is Cow08 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 0.69, 'feeding': 0.24, 'walking': 0.07}).",
+  "context": "29 samples this minute; night=False; posture P(standing)=1.00"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow08_1107_1616 (behaviour). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-07 16:16:31.666667.\nTracker context: 29 samples this minute; night=False; posture P(standing)=1.00\nQuestion: What is Cow08 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 0.69, 'feeding': 0.24, 'walking': 0.07}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "Planned check: the zoom shows the muzzle in the waterer. I'll confirm over time that she stays there.",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       0,
+       20
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-20s.jpg",
+    "04_seq_+0s.jpg",
+    "05_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "drinking",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.85,
+      "evidence": "The zoomed crop at the case time shows Cow08 standing with her muzzle down inside the yellow waterer trough, with wet ground around the trough base. In the wide frames she is at the waterer at 0 s and still there at +20 s. At -20 s the waterer box is empty, so she probably walked over from the bunk area, which fits the tracker's 'walking' and 'feeding' votes early in the minute. Her ears and head look normal for a cow drinking, and I saw no discharge or gauntness at this resolution.",
+      "self_check": "I checked the zoomed crop against the -20/0/+20 s sequence: she is at the waterer for at least the middle and late part of the minute. This would be wrong if she spent most of the minute walking to the waterer or feeding before arriving. The tracker's 0.69 drinking vote suggests she didn't. I didn't check another camera or run chew_check, because the muzzle is plainly in the trough and this isn't a rumination call."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:26:33",
+ "answer": {
+  "behavior": "drinking",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.85,
+  "evidence": "The zoomed crop at the case time shows Cow08 standing with her muzzle down inside the yellow waterer trough, with wet ground around the trough base. In the wide frames she is at the waterer at 0 s and still there at +20 s. At -20 s the waterer box is empty, so she probably walked over from the bunk area, which fits the tracker's 'walking' and 'feeding' votes early in the minute. Her ears and head look normal for a cow drinking, and I saw no discharge or gauntness at this resolution.",
+  "self_check": "I checked the zoomed crop against the -20/0/+20 s sequence: she is at the waterer for at least the middle and late part of the minute. This would be wrong if she spent most of the minute walking to the waterer or feeding before arriving. The tracker's 0.69 drinking vote suggests she didn't. I didn't check another camera or run chew_check, because the muzzle is plainly in the trough and this isn't a rumination call.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 2
+}

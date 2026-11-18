@@ -1,0 +1,162 @@
+{
+ "case": {
+  "case_id": "full_id_Event20261107064432003_1",
+  "kind": "identity",
+  "cam": "Cam 03",
+  "ts": "2026-11-07 06:48:34.666667",
+  "box": [
+   "252",
+   "616",
+   "553",
+   "910"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.9695721891559369,
+  "track": "Event20261107064432003_1",
+  "question": "Which of the candidate cows (Cow06, Cow01, Cow02) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+  "context": "tracker assigned Cow06 with a small margin (0.03)",
+  "candidates": [
+   [
+    "Cow06",
+    "Cam 02",
+    "2026-11-08 17:21:10.166667",
+    [
+     "671",
+     "195",
+     "1189",
+     "756"
+    ]
+   ],
+   [
+    "Cow01",
+    "Cam 02",
+    "2026-11-07 17:26:06.233333",
+    [
+     "580",
+     "180",
+     "1163",
+     "777"
+    ]
+   ],
+   [
+    "Cow02",
+    "Cam 02",
+    "2026-11-07 13:37:47.266667",
+    [
+     "521",
+     "231",
+     "1023",
+     "720"
+    ]
+   ]
+  ]
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_id_Event20261107064432003_1 (identity). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-07 06:48:34.666667.\nTracker context: tracker assigned Cow06 with a small margin (0.03)\nQuestion: Which of the candidate cows (Cow06, Cow01, Cow02) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow06",
+   "images": [
+    "03_cand_Cow06.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow01",
+   "images": [
+    "04_cand_Cow01.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow02",
+   "images": [
+    "05_cand_Cow02.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       -5,
+       5,
+       20
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset -5s (box shows the case-time position)",
+    "offset +5s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "06_seq_-20s.jpg",
+    "07_seq_-5s.jpg",
+    "08_seq_+5s.jpg",
+    "09_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "standing",
+      "posture": "standing",
+      "same_cow_as_candidate": "none",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.3,
+      "evidence": "None of the three candidate reference crops (Cow06, Cow01, Cow02) loaded, so I had nothing to compare tags or markings against. Two black cows overlap inside the box. The left cow, which matches the box edges best, is solid black with no white markings I could see, a medium-large frame, and a yellow tag in her left ear (visible at -5 s and +5 s when she faces the camera). At the case time the second cow's head is pressed against the left cow's neck and shoulder. Frames from -20 s to +20 s show the left cow standing in the same place the whole time. She has her head up, is not at the bunk or the waterer, and is not walking. The head contact is short, so standing describes most of the minute. Her ears are normal and her head is carried normally, and I saw no discharge.",
+      "self_check": "I checked the posture and lack of movement in 4 frames between -20 s and +20 s. I could not confirm her identity because no reference images were available. The tracker's Cow06 pick (margin 0.03) is unverified, so I am not endorsing any candidate. If the box was meant for the right cow, the posture and behaviour would be the same, but the tag evidence would differ. The short head contact could count as social_interaction if it lasted longer than these frames show. I did not run chew_check because I am not claiming rumination."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:25:55",
+ "answer": {
+  "behavior": "standing",
+  "posture": "standing",
+  "same_cow_as_candidate": "none",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.3,
+  "evidence": "None of the three candidate reference crops (Cow06, Cow01, Cow02) loaded, so I had nothing to compare tags or markings against. Two black cows overlap inside the box. The left cow, which matches the box edges best, is solid black with no white markings I could see, a medium-large frame, and a yellow tag in her left ear (visible at -5 s and +5 s when she faces the camera). At the case time the second cow's head is pressed against the left cow's neck and shoulder. Frames from -20 s to +20 s show the left cow standing in the same place the whole time. She has her head up, is not at the bunk or the waterer, and is not walking. The head contact is short, so standing describes most of the minute. Her ears are normal and her head is carried normally, and I saw no discharge.",
+  "self_check": "I checked the posture and lack of movement in 4 frames between -20 s and +20 s. I could not confirm her identity because no reference images were available. The tracker's Cow06 pick (margin 0.03) is unverified, so I am not endorsing any candidate. If the box was meant for the right cow, the posture and behaviour would be the same, but the tag evidence would differ. The short head contact could count as social_interaction if it lasted longer than these frames show. I did not run chew_check because I am not claiming rumination.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 2
+}

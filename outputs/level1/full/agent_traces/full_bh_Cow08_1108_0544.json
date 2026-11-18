@@ -1,0 +1,145 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow08_1108_0544",
+  "kind": "behaviour_night",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 05:44:50.600000",
+  "box": [
+   "524",
+   "569",
+   "696",
+   "687"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.10075877020102483,
+  "posture_prob_standing": 0.7497575711700742,
+  "cow": 8,
+  "minute": "2026-11-08 05:44:00",
+  "question": "What is Cow08 doing during this minute? Tracker says 'social_interaction' (sample votes: {'social_interaction': 1.0}).",
+  "context": "2 samples this minute; night=True; posture P(standing)=0.75"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow08_1108_0544 (behaviour_night). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 05:44:50.600000.\nTracker context: 2 samples this minute; night=True; posture P(standing)=0.75\nQuestion: What is Cow08 doing during this minute? Tracker says 'social_interaction' (sample votes: {'social_interaction': 1.0}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       0,
+       20
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-20s.jpg",
+    "04_seq_+0s.jpg",
+    "05_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 20,
+      "pad": 0.3
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "06_look_+20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 1.38, \"peak_to_median\": 2.1, \"motion_energy\": 3.264, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "lying",
+      "posture": "lying",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.65,
+      "evidence": "Cow08's box holds two cows lying close together: a black cow at the back with her head to the left, and a black cow with a white face at the front, with her head to the right and a white ear tag. In the zoomed crop at +20 s, both are clearly lying in sternal recumbency (resting upright on the chest). Their heads point in opposite directions and are far apart, with no contact. The bright blob at 0 s is IR glare or frost on the lens, not an animal. Frames at -20, 0 and +20 s show both cows staying in the same place without moving. The tracker probably read two overlapping boxes as social interaction.",
+      "self_check": "I checked the case time, the frames at -20 s and +20 s, and a zoomed crop at +20 s. Both cows in the box are lying the whole time, so the posture is lying whichever one is Cow08. The jaw-motion check gave 1.38 Hz, but the peak strength was only 2.1, below the >4 that suggests chewing. Two cows and lens artifacts in the same box make it unreliable, so I did not call rumination. I could be wrong if Cow08 was ruminating, which this IR footage can't show. The '?' on the box also means the identity link itself is uncertain. Clinical signs can't be judged in night IR at this resolution."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:27:37",
+ "answer": {
+  "behavior": "lying",
+  "posture": "lying",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.65,
+  "evidence": "Cow08's box holds two cows lying close together: a black cow at the back with her head to the left, and a black cow with a white face at the front, with her head to the right and a white ear tag. In the zoomed crop at +20 s, both are clearly lying in sternal recumbency (resting upright on the chest). Their heads point in opposite directions and are far apart, with no contact. The bright blob at 0 s is IR glare or frost on the lens, not an animal. Frames at -20, 0 and +20 s show both cows staying in the same place without moving. The tracker probably read two overlapping boxes as social interaction.",
+  "self_check": "I checked the case time, the frames at -20 s and +20 s, and a zoomed crop at +20 s. Both cows in the box are lying the whole time, so the posture is lying whichever one is Cow08. The jaw-motion check gave 1.38 Hz, but the peak strength was only 2.1, below the >4 that suggests chewing. Two cows and lens artifacts in the same box make it unreliable, so I did not call rumination. I could be wrong if Cow08 was ruminating, which this IR footage can't show. The '?' on the box also means the identity link itself is uncertain. Clinical signs can't be judged in night IR at this resolution.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 4
+}

@@ -1,0 +1,11 @@
+cow_id,drinking,feeding,lying,other_not_visible,social_interaction,standing,walking
+Cow01,0,23,12,9,0,16,0
+Cow02,4,13,15,13,0,15,0
+Cow03,12,10,0,26,2,10,0
+Cow04,10,19,4,10,0,17,0
+Cow05,1,38,1,13,1,6,0
+Cow06,0,36,0,16,1,7,0
+Cow07,4,38,1,11,1,4,1
+Cow08,0,48,0,9,1,2,0
+Cow09,0,44,0,13,0,3,0
+Cow10,1,29,0,17,0,13,0

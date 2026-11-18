@@ -1,0 +1,62 @@
+{
+ "Cow01": {
+  "risk": 0.856,
+  "updated": "2026-11-08 09:46:17",
+  "last_clip": "Event20261108094617003.Avi",
+  "live_z": 2.12
+ },
+ "Cow02": {
+  "risk": 0.944,
+  "updated": "2026-11-08 09:46:17",
+  "last_clip": "Event20261108094617003.Avi",
+  "live_z": 0.0
+ },
+ "Cow03": {
+  "risk": 0.98,
+  "updated": "2026-11-08 09:46:17",
+  "last_clip": "Event20261108094617003.Avi",
+  "live_z": 3.0
+ },
+ "Cow04": {
+  "risk": 0.85,
+  "updated": "2026-11-08 09:46:17",
+  "last_clip": "Event20261108094617003.Avi",
+  "live_z": 0.0
+ },
+ "Cow05": {
+  "risk": 0.028,
+  "updated": "2026-11-08 09:46:17",
+  "last_clip": "Event20261108094617003.Avi",
+  "live_z": 0.0
+ },
+ "Cow06": {
+  "risk": 0.818,
+  "updated": "2026-11-08 09:46:17",
+  "last_clip": "Event20261108094617003.Avi",
+  "live_z": 3.0
+ },
+ "Cow07": {
+  "risk": 0.187,
+  "updated": "2026-11-08 09:46:17",
+  "last_clip": "Event20261108094617003.Avi",
+  "live_z": 0.0
+ },
+ "Cow08": {
+  "risk": 0.665,
+  "updated": "2026-11-08 09:46:17",
+  "last_clip": "Event20261108094617003.Avi",
+  "live_z": 0.0
+ },
+ "Cow09": {
+  "risk": 0.59,
+  "updated": "2026-11-08 09:46:17",
+  "last_clip": "Event20261108094617003.Avi",
+  "live_z": 0.71
+ },
+ "Cow10": {
+  "risk": 0.03,
+  "updated": "2026-11-08 09:46:17",
+  "last_clip": "Event20261108094617003.Avi",
+  "live_z": 0.0
+ }
+}

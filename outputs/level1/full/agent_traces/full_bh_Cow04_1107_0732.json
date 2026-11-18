@@ -1,0 +1,140 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow04_1107_0732",
+  "kind": "behaviour",
+  "cam": "Cam 03",
+  "ts": "2026-11-07 07:32:21.700000",
+  "box": [
+   "487",
+   "501",
+   "555",
+   "553"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 1.0,
+  "posture_prob_standing": 0.4633540957178023,
+  "cow": 4,
+  "minute": "2026-11-07 07:32:00",
+  "question": "What is Cow04 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 0.5, 'lying': 0.5}).",
+  "context": "2 samples this minute; night=False; posture P(standing)=0.46"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow04_1107_0732 (behaviour). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-07 07:32:21.700000.\nTracker context: 2 samples this minute; night=False; posture P(standing)=0.46\nQuestion: What is Cow04 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 0.5, 'lying': 0.5}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "The zoomed crop shows a standing cow with her muzzle at the yellow waterer. I'll check over time to confirm.",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       0,
+       20
+      ]
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 20,
+      "pad": 0.6
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-20s.jpg",
+    "04_seq_+0s.jpg",
+    "05_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "06_look_+20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": -20,
+      "pad": 0.6
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_-20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "drinking",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.85,
+      "evidence": "Zoomed crops at -20s and 0s show cow standing with head down, muzzle at the yellow waterer; at +20s head slightly raised just above the waterer, still standing in the same place. Sequence -20/0/+20 shows no position change, cow stays in waterer zone. No lying seen at any offset.",
+      "self_check": "Verified with zooms at -20s and +20s plus whole-frame sequence; posture clearly standing on four legs throughout, so the 'lying' vote is wrong. Could be wrong if she was only standing at the waterer without drinking for much of the minute (head up at +20s), but muzzle at water in 2 of 3 views."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:26:19",
+ "answer": {
+  "behavior": "drinking",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.85,
+  "evidence": "Zoomed crops at -20s and 0s show cow standing with head down, muzzle at the yellow waterer; at +20s head slightly raised just above the waterer, still standing in the same place. Sequence -20/0/+20 shows no position change, cow stays in waterer zone. No lying seen at any offset.",
+  "self_check": "Verified with zooms at -20s and +20s plus whole-frame sequence; posture clearly standing on four legs throughout, so the 'lying' vote is wrong. Could be wrong if she was only standing at the waterer without drinking for much of the minute (head up at +20s), but muzzle at water in 2 of 3 views.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

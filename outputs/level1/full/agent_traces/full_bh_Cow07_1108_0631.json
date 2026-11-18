@@ -1,0 +1,159 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow07_1108_0631",
+  "kind": "behaviour_night",
+  "cam": "Cam 02",
+  "ts": "2026-11-08 06:31:41.166667",
+  "box": [
+   "254",
+   "226",
+   "752",
+   "661"
+  ],
+  "bunk_ov": 0.08085676037483266,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.9995158706303048,
+  "cow": 7,
+  "minute": "2026-11-08 06:31:00",
+  "question": "What is Cow07 doing during this minute? Tracker says 'social_interaction' (sample votes: {'standing': 0.2, 'social_interaction': 0.8}).",
+  "context": "15 samples this minute; night=True; posture P(standing)=1.00"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow07_1108_0631 (behaviour_night). Camera Cam 02 (front cam 2 (top-down on the feed bunk)), time 2026-11-08 06:31:41.166667.\nTracker context: 15 samples this minute; night=True; posture P(standing)=1.00\nQuestion: What is Cow07 doing during this minute? Tracker says 'social_interaction' (sample votes: {'standing': 0.2, 'social_interaction': 0.8}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       -5,
+       10,
+       25
+      ]
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 0,
+      "pad": 0.3
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset -5s (box shows the case-time position)",
+    "offset +10s (box shows the case-time position)",
+    "offset +25s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-20s.jpg",
+    "04_seq_-5s.jpg",
+    "05_seq_+10s.jpg",
+    "06_seq_+25s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [
+    "no frame"
+   ],
+   "images": [
+    "07_look_+0s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    },
+    {
+     "name": "look_other_camera",
+     "input": {
+      "camera": "Cam 03",
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 0.5, \"peak_to_median\": 2.4, \"motion_energy\": 0.01, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "tool",
+   "name": "look_other_camera",
+   "result": [],
+   "images": [
+    "08_other_Cam03.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "standing",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.6,
+      "evidence": "Cam 02 IR sequence (-20,-5,+10,+25 s): boxed cow stands stationary, angled with head to upper-left, flanks pressed between neighbouring cows but head turned away from them; no head-to-head contact, butting, licking or mounting seen. Muzzle not at bunk. chew_check 0.5 Hz, peak/median 2.4, low motion: not rumination. Body contact with neighbours likely triggered tracker's social label.",
+      "self_check": "Checked over 4 time offsets and with chew_check; Cam 03 too distant to help. Zoomed crop unavailable. Would be wrong if brief nuzzling/licking occurred between sampled frames, which IR resolution may hide."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:27:16",
+ "answer": {
+  "behavior": "standing",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.6,
+  "evidence": "Cam 02 IR sequence (-20,-5,+10,+25 s): boxed cow stands stationary, angled with head to upper-left, flanks pressed between neighbouring cows but head turned away from them; no head-to-head contact, butting, licking or mounting seen. Muzzle not at bunk. chew_check 0.5 Hz, peak/median 2.4, low motion: not rumination. Body contact with neighbours likely triggered tracker's social label.",
+  "self_check": "Checked over 4 time offsets and with chew_check; Cam 03 too distant to help. Zoomed crop unavailable. Would be wrong if brief nuzzling/licking occurred between sampled frames, which IR resolution may hide.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

@@ -1,0 +1,158 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow04_1107_1737",
+  "kind": "behaviour",
+  "cam": "Cam 03",
+  "ts": "2026-11-07 17:37:30.633333",
+  "box": [
+   "485",
+   "488",
+   "596",
+   "575"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.7253805529667599,
+  "posture_prob_standing": 0.9481713102379364,
+  "cow": 4,
+  "minute": "2026-11-07 17:37:00",
+  "question": "What is Cow04 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 1.0}).",
+  "context": "30 samples this minute; night=False; posture P(standing)=0.95"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow04_1107_1737 (behaviour). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-07 17:37:30.633333.\nTracker context: 30 samples this minute; night=False; posture P(standing)=0.95\nQuestion: What is Cow04 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 1.0}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       -8,
+       8,
+       20
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset -8s (box shows the case-time position)",
+    "offset +8s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-20s.jpg",
+    "04_seq_-8s.jpg",
+    "05_seq_+8s.jpg",
+    "06_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 8,
+      "pad": 0.4
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": -20,
+      "pad": 0.4
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 20,
+      "pad": 0.4
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_+8s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "08_look_-20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "09_look_+20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "drinking",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.8,
+      "evidence": "In zoomed Cam 03 crops, Cow04 stands at the yellow waterer the whole time. At -20 s her muzzle is in the waterer's opening. At +8 s and +20 s her head is lowered to the waterer. At the case time her head is raised slightly, but still right over it. She stays in the same spot across all frames from -20 s to +20 s. The ground around the waterer is wet. Her ears look normal and I saw no discharge, but at this resolution I could only check signs roughly.",
+      "self_check": "I checked her over time with look_sequence and three zoomed crops across a 40-second window, which agree with the tracker's 'drinking' votes. The waterer partly hides her muzzle from this angle. She could be standing at the waterer with her head down without actually drinking. I did not get a second camera view, and I did not run chew_check because no rumination was suspected."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:26:28",
+ "answer": {
+  "behavior": "drinking",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.8,
+  "evidence": "In zoomed Cam 03 crops, Cow04 stands at the yellow waterer the whole time. At -20 s her muzzle is in the waterer's opening. At +8 s and +20 s her head is lowered to the waterer. At the case time her head is raised slightly, but still right over it. She stays in the same spot across all frames from -20 s to +20 s. The ground around the waterer is wet. Her ears look normal and I saw no discharge, but at this resolution I could only check signs roughly.",
+  "self_check": "I checked her over time with look_sequence and three zoomed crops across a 40-second window, which agree with the tracker's 'drinking' votes. The waterer partly hides her muzzle from this angle. She could be standing at the waterer with her head down without actually drinking. I did not get a second camera view, and I did not run chew_check because no rumination was suspected.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

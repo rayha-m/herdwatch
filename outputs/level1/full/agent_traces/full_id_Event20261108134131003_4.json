@@ -1,0 +1,173 @@
+{
+ "case": {
+  "case_id": "full_id_Event20261108134131003_4",
+  "kind": "identity",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 13:45:23.600000",
+  "box": [
+   "699",
+   "653",
+   "881",
+   "765"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.08631010033789092,
+  "track": "Event20261108134131003_4",
+  "question": "Which of the candidate cows (Cow01, Cow06, Cow03) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+  "context": "tracker assigned Cow01 with a small margin (0.06)",
+  "candidates": [
+   [
+    "Cow01",
+    "Cam 02",
+    "2026-11-07 17:26:06.233333",
+    [
+     "580",
+     "180",
+     "1163",
+     "777"
+    ]
+   ],
+   [
+    "Cow06",
+    "Cam 02",
+    "2026-11-08 17:21:10.166667",
+    [
+     "671",
+     "195",
+     "1189",
+     "756"
+    ]
+   ],
+   [
+    "Cow03",
+    "Cam 02",
+    "2026-11-07 17:07:42.266667",
+    [
+     "103",
+     "146",
+     "538",
+     "776"
+    ]
+   ]
+  ]
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_id_Event20261108134131003_4 (identity). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 13:45:23.600000.\nTracker context: tracker assigned Cow01 with a small margin (0.06)\nQuestion: Which of the candidate cows (Cow01, Cow06, Cow03) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow01",
+   "images": [
+    "03_cand_Cow01.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow06",
+   "images": [
+    "04_cand_Cow06.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow03",
+   "images": [
+    "05_cand_Cow03.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "The candidate reference images are missing, so I'll gather behaviour evidence and look for tags.",
+   "tool_calls": [
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    },
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -30,
+       0,
+       30
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 0.5, \"peak_to_median\": 2.9, \"motion_energy\": 0.043, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -30s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +30s (box shows the case-time position)"
+   ],
+   "images": [
+    "06_seq_-30s.jpg",
+    "07_seq_+0s.jpg",
+    "08_seq_+30s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "lying",
+      "posture": "lying",
+      "same_cow_as_candidate": "none",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.15,
+      "evidence": "Box covers the rear cow of a tightly overlapping pair lying sternally near the right fence. Both cows show small pale ear tags; no white markings visible. All three candidate reference crops were unavailable, so identity cannot be compared. Sequence -30/0/+30 s: no position change, lying throughout. chew_check 0.5 Hz, peak/median 2.9: not rhythmic rumination. Head up, ears normal, resting with the group.",
+      "self_check": "Behaviour checked over a 60 s sequence and with chew_check; lying is fairly reliable (~0.75) but rumination could be missed because the jaw is partly hidden by the front cow. Identity is not resolvable without reference images; the tracker's Cow01 (margin 0.06) is neither confirmed nor ruled out. Needs reference crops of the candidates to resolve."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:25:39",
+ "answer": {
+  "behavior": "lying",
+  "posture": "lying",
+  "same_cow_as_candidate": "none",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.15,
+  "evidence": "Box covers the rear cow of a tightly overlapping pair lying sternally near the right fence. Both cows show small pale ear tags; no white markings visible. All three candidate reference crops were unavailable, so identity cannot be compared. Sequence -30/0/+30 s: no position change, lying throughout. chew_check 0.5 Hz, peak/median 2.9: not rhythmic rumination. Head up, ears normal, resting with the group.",
+  "self_check": "Behaviour checked over a 60 s sequence and with chew_check; lying is fairly reliable (~0.75) but rumination could be missed because the jaw is partly hidden by the front cow. Identity is not resolvable without reference images; the tracker's Cow01 (margin 0.06) is neither confirmed nor ruled out. Needs reference crops of the candidates to resolve.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 2
+}

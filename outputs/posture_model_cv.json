@@ -1,0 +1,23 @@
+{
+ "n": 294,
+ "n_lying": 107,
+ "n_standing": 187,
+ "grouped_cv_folds": 5,
+ "confusion[lying,standing]": [
+  [
+   101,
+   6
+  ],
+  [
+   6,
+   181
+  ]
+ ],
+ "accuracy": 0.9591836734693877,
+ "lying_f1": 0.9439252336448598,
+ "standing_f1": 0.9679144385026738,
+ "accuracy_day": 0.968421052631579,
+ "n_day": 190,
+ "accuracy_night_ir": 0.9423076923076923,
+ "n_night_ir": 104
+}

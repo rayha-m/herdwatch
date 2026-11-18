@@ -1,0 +1,143 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow07_1107_0625",
+  "kind": "behaviour_night",
+  "cam": "Cam 03",
+  "ts": "2026-11-07 06:25:11.633333",
+  "box": [
+   "479",
+   "597",
+   "719",
+   "787"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.009802631578947368,
+  "posture_prob_standing": 0.8972030692123122,
+  "cow": 7,
+  "minute": "2026-11-07 06:25:00",
+  "question": "What is Cow07 doing during this minute? Tracker says 'social_interaction' (sample votes: {'social_interaction': 1.0}).",
+  "context": "10 samples this minute; night=True; posture P(standing)=0.90"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow07_1107_0625 (behaviour_night). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-07 06:25:11.633333.\nTracker context: 10 samples this minute; night=True; posture P(standing)=0.90\nQuestion: What is Cow07 doing during this minute? Tracker says 'social_interaction' (sample votes: {'social_interaction': 1.0}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -25,
+       -10,
+       10,
+       25
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -25s (box shows the case-time position)",
+    "offset -10s (box shows the case-time position)",
+    "offset +10s (box shows the case-time position)",
+    "offset +25s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-25s.jpg",
+    "04_seq_-10s.jpg",
+    "05_seq_+10s.jpg",
+    "06_seq_+25s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": -10,
+      "pad": 0.3
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 10,
+      "pad": 0.3
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_-10s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "08_look_+10s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "standing",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.6,
+      "evidence": "Low-light dawn grayscale, Cam 03. The tracker box holds two black cows standing side by side, head-to-tail, overlapping in the image. In zoomed crops at -10, 0 and +10 s, both cows stood still with heads level and pointing in opposite directions. Neither cow touched the other with her head: no head-to-head contact, butting, licking or mounting. By +25 s only one cow was left in the box, standing calmly. Ears and heads looked normal, with no discharge visible at this resolution.",
+      "self_check": "I checked the frame sequence at -25, -10, +10 and +25 s and zoomed crops at \u00b110 s. Posture and position stayed steady, with no contact behaviour. The tracker probably read the overlapping boxes as social_interaction. Main uncertainty: the '?' marker means it is unclear which of the two cows is Cow07. Brief licking or nudging outside the frames I sampled could make social_interaction correct. I did not run chew_check, so standing rumination is not ruled out."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:27:16",
+ "answer": {
+  "behavior": "standing",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.6,
+  "evidence": "Low-light dawn grayscale, Cam 03. The tracker box holds two black cows standing side by side, head-to-tail, overlapping in the image. In zoomed crops at -10, 0 and +10 s, both cows stood still with heads level and pointing in opposite directions. Neither cow touched the other with her head: no head-to-head contact, butting, licking or mounting. By +25 s only one cow was left in the box, standing calmly. Ears and heads looked normal, with no discharge visible at this resolution.",
+  "self_check": "I checked the frame sequence at -25, -10, +10 and +25 s and zoomed crops at \u00b110 s. Posture and position stayed steady, with no contact behaviour. The tracker probably read the overlapping boxes as social_interaction. Main uncertainty: the '?' marker means it is unclear which of the two cows is Cow07. Brief licking or nudging outside the frames I sampled could make social_interaction correct. I did not run chew_check, so standing rumination is not ruled out.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

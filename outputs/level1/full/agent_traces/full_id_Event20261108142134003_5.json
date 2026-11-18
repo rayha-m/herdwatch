@@ -1,0 +1,213 @@
+{
+ "case": {
+  "case_id": "full_id_Event20261108142134003_5",
+  "kind": "identity",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 14:21:58.600000",
+  "box": [
+   "900",
+   "632",
+   "986",
+   "762"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.9899329507728898,
+  "track": "Event20261108142134003_5",
+  "question": "Which of the candidate cows (Cow09, Cow02, Cow08) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+  "context": "tracker assigned Cow09 with a small margin (0.17)",
+  "candidates": [
+   [
+    "Cow09",
+    "Cam 02",
+    "2026-11-07 09:08:40.133333",
+    [
+     "34",
+     "312",
+     "637",
+     "843"
+    ]
+   ],
+   [
+    "Cow02",
+    "Cam 02",
+    "2026-11-07 13:37:47.266667",
+    [
+     "521",
+     "231",
+     "1023",
+     "720"
+    ]
+   ],
+   [
+    "Cow08",
+    "Cam 02",
+    "2026-11-07 16:39:57.166667",
+    [
+     "500",
+     "217",
+     "1124",
+     "715"
+    ]
+   ]
+  ]
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_id_Event20261108142134003_5 (identity). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 14:21:58.600000.\nTracker context: tracker assigned Cow09 with a small margin (0.17)\nQuestion: Which of the candidate cows (Cow09, Cow02, Cow08) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow09",
+   "images": [
+    "03_cand_Cow09.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow02",
+   "images": [
+    "04_cand_Cow02.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow08",
+   "images": [
+    "05_cand_Cow08.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "The candidate reference images are unavailable, so I'll check the cow's ear tag and behaviour directly.",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       -8,
+       8,
+       20
+      ]
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 0,
+      "pad": 0.3
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset -8s (box shows the case-time position)",
+    "offset +8s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "06_seq_-20s.jpg",
+    "07_seq_-8s.jpg",
+    "08_seq_+8s.jpg",
+    "09_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "10_look_+0s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 20,
+      "pad": 0.3
+     }
+    },
+    {
+     "name": "look_other_camera",
+     "input": {
+      "camera": "Cam 01",
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "11_look_+20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_other_camera",
+   "result": [],
+   "images": [
+    "12_other_Cam01.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "standing",
+      "posture": "standing",
+      "same_cow_as_candidate": "Cow09",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.3,
+      "evidence": "Rear view, back camera: a plain black Angus with no white markings seen, ordinary build, standing by the right fence away from the feed bunk and waterer. She stood at -20, -8, 0 and +8 s, head level and slightly down as if looking at the ground. By +20 s she had lain down in the same spot, and small greenish ear-tag glints were visible; I couldn't read a number or reliably tell which ear. All three candidate reference images (Cow09, Cow02, Cow08) were unavailable, so no comparison was possible. Cow09 is the tracker's low-margin guess, kept as a placeholder and not confirmed.",
+      "self_check": "Checked her behaviour with the full camera view at four time offsets, zoomed views at 0 and +20 s, and the front camera at 0 s. Standing at the case time is solid, but she lay down by +20 s, so a whole-minute label could be split between standing and lying. Chewing test not run because nothing suggested cud chewing. Identity is unverified because there were no reference images; it would be wrong if Cow02 or Cow08 also wears a green tag. To settle it, compare her ear tag with the references or check the top-down camera at the bunk."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:25:57",
+ "answer": {
+  "behavior": "standing",
+  "posture": "standing",
+  "same_cow_as_candidate": "Cow09",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.3,
+  "evidence": "Rear view, back camera: a plain black Angus with no white markings seen, ordinary build, standing by the right fence away from the feed bunk and waterer. She stood at -20, -8, 0 and +8 s, head level and slightly down as if looking at the ground. By +20 s she had lain down in the same spot, and small greenish ear-tag glints were visible; I couldn't read a number or reliably tell which ear. All three candidate reference images (Cow09, Cow02, Cow08) were unavailable, so no comparison was possible. Cow09 is the tracker's low-margin guess, kept as a placeholder and not confirmed.",
+  "self_check": "Checked her behaviour with the full camera view at four time offsets, zoomed views at 0 and +20 s, and the front camera at 0 s. Standing at the case time is solid, but she lay down by +20 s, so a whole-minute label could be split between standing and lying. Chewing test not run because nothing suggested cud chewing. Identity is unverified because there were no reference images; it would be wrong if Cow02 or Cow08 also wears a green tag. To settle it, compare her ear tag with the references or check the top-down camera at the bunk.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

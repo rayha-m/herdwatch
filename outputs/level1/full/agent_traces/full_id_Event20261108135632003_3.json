@@ -1,0 +1,175 @@
+{
+ "case": {
+  "case_id": "full_id_Event20261108135632003_3",
+  "kind": "identity",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 13:57:50.600000",
+  "box": [
+   "657",
+   "660",
+   "883",
+   "807"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.07260416787587179,
+  "track": "Event20261108135632003_3",
+  "question": "Which of the candidate cows (Cow08, Cow02, Cow01) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+  "context": "tracker assigned Cow08 with a small margin (0.09)",
+  "candidates": [
+   [
+    "Cow08",
+    "Cam 02",
+    "2026-11-07 16:39:57.166667",
+    [
+     "500",
+     "217",
+     "1124",
+     "715"
+    ]
+   ],
+   [
+    "Cow02",
+    "Cam 02",
+    "2026-11-07 13:37:47.266667",
+    [
+     "521",
+     "231",
+     "1023",
+     "720"
+    ]
+   ],
+   [
+    "Cow01",
+    "Cam 02",
+    "2026-11-07 17:26:06.233333",
+    [
+     "580",
+     "180",
+     "1163",
+     "777"
+    ]
+   ]
+  ]
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_id_Event20261108135632003_3 (identity). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 13:57:50.600000.\nTracker context: tracker assigned Cow08 with a small margin (0.09)\nQuestion: Which of the candidate cows (Cow08, Cow02, Cow01) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow08",
+   "images": [
+    "03_cand_Cow08.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow02",
+   "images": [
+    "04_cand_Cow02.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow01",
+   "images": [
+    "05_cand_Cow01.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       0,
+       20
+      ]
+     }
+    },
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "06_seq_-20s.jpg",
+    "07_seq_+0s.jpg",
+    "08_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 0.38, \"peak_to_median\": 5.4, \"motion_energy\": 0.201, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "lying",
+      "posture": "lying",
+      "same_cow_as_candidate": "none",
+      "clinical_signs": [
+       "none_seen",
+       "not_assessable"
+      ],
+      "confidence": 0.3,
+      "evidence": "The box holds two overlapping black cows lying side by side. The front cow has a light blue/white tag in her left ear and a tag in her right ear that looks like '34'; the cow behind also has an ear tag. Neither has white markings. All three candidate reference crops were unavailable, so tags and body shape could not be matched. In the frames at -20, 0 and +20 s both cows lie in the same spot, heads up, away from the bunk and waterer. The chew test peaked at 0.38 Hz, below the 0.7-1.4 Hz rumination range.",
+      "self_check": "Behaviour was checked two ways: the time sequence (-20, 0, +20 s) showed no change in position, and the chew test showed no rhythm in the rumination range, so the label is lying. Identity could not be checked because there were no reference images, and the box contains two cows, so the tracker's Cow08 (margin 0.09) is not confirmed. A match between the right-ear '34' tag and a candidate's tag record would settle identity. Clinical signs: head up and ears normal on the front cow; breathing and flank not assessable at this resolution."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:25:20",
+ "answer": {
+  "behavior": "lying",
+  "posture": "lying",
+  "same_cow_as_candidate": "none",
+  "clinical_signs": [
+   "none_seen",
+   "not_assessable"
+  ],
+  "confidence": 0.3,
+  "evidence": "The box holds two overlapping black cows lying side by side. The front cow has a light blue/white tag in her left ear and a tag in her right ear that looks like '34'; the cow behind also has an ear tag. Neither has white markings. All three candidate reference crops were unavailable, so tags and body shape could not be matched. In the frames at -20, 0 and +20 s both cows lie in the same spot, heads up, away from the bunk and waterer. The chew test peaked at 0.38 Hz, below the 0.7-1.4 Hz rumination range.",
+  "self_check": "Behaviour was checked two ways: the time sequence (-20, 0, +20 s) showed no change in position, and the chew test showed no rhythm in the rumination range, so the label is lying. Identity could not be checked because there were no reference images, and the box contains two cows, so the tracker's Cow08 (margin 0.09) is not confirmed. A match between the right-ear '34' tag and a candidate's tag record would settle identity. Clinical signs: head up and ears normal on the front cow; breathing and flank not assessable at this resolution.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 2
+}

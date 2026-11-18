@@ -1,0 +1,142 @@
+{
+ "case": {
+  "case_id": "slice_c3_1h_bh_Cow09_1108_1755",
+  "kind": "behaviour_night",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 17:55:52.633333",
+  "box": [
+   "535",
+   "580",
+   "710",
+   "711"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.04946564885496183,
+  "posture_prob_standing": 0.9783019675207432,
+  "cow": 9,
+  "minute": "2026-11-08 17:55:00",
+  "question": "What is Cow09 doing during this minute? Tracker says 'social_interaction' (sample votes: {'social_interaction': 1.0}).",
+  "context": "8 samples this minute; night=True; posture P(standing)=0.98"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE slice_c3_1h_bh_Cow09_1108_1755 (behaviour_night). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 17:55:52.633333.\nTracker context: 8 samples this minute; night=True; posture P(standing)=0.98\nQuestion: What is Cow09 doing during this minute? Tracker says 'social_interaction' (sample votes: {'social_interaction': 1.0}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -25,
+       -10,
+       10,
+       25
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -25s (box shows the case-time position)",
+    "offset -10s (box shows the case-time position)",
+    "offset +10s (box shows the case-time position)",
+    "offset +25s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-25s.jpg",
+    "04_seq_-10s.jpg",
+    "05_seq_+10s.jpg",
+    "06_seq_+25s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 10,
+      "pad": 0.6
+     }
+    },
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_+10s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 0.38, \"peak_to_median\": 2.1, \"motion_energy\": 0.326, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "standing",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.5,
+      "evidence": "The boxed cow is standing side-on, with her rump to the left and her head up on the right, inside a tight group of 3 to 4 cows in the middle of the pen. In the zoomed looks at 0 s and +10 s, I saw no head-to-head pushing, butting, licking or mounting. A white-faced cow stands in front of her and partly blocks the view. Across the frames from -25 s to +25 s, she stays in about the same place and is not at the bunk or the waterer. The chew check found no rhythmic chewing (0.38 Hz, peak-to-median 2.1).",
+      "self_check": "I checked her over time (4 frames from -25 s to +25 s, a zoomed look at +10 s) and ran a chew check. I'm going against the tracker's 'social_interaction' label, which may have come from the cows overlapping closely rather than from any real contact. This would be wrong if there was brief contact while the white-faced cow blocked the view. Who is in the box is also unclear because the cows overlap. The footage is infrared, so I couldn't judge ears, nose discharge or breathing."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "04:05:53",
+ "answer": {
+  "behavior": "standing",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.5,
+  "evidence": "The boxed cow is standing side-on, with her rump to the left and her head up on the right, inside a tight group of 3 to 4 cows in the middle of the pen. In the zoomed looks at 0 s and +10 s, I saw no head-to-head pushing, butting, licking or mounting. A white-faced cow stands in front of her and partly blocks the view. Across the frames from -25 s to +25 s, she stays in about the same place and is not at the bunk or the waterer. The chew check found no rhythmic chewing (0.38 Hz, peak-to-median 2.1).",
+  "self_check": "I checked her over time (4 frames from -25 s to +25 s, a zoomed look at +10 s) and ran a chew check. I'm going against the tracker's 'social_interaction' label, which may have come from the cows overlapping closely rather than from any real contact. This would be wrong if there was brief contact while the white-faced cow blocked the view. Who is in the box is also unclear because the cows overlap. The footage is infrared, so I couldn't judge ears, nose discharge or breathing.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

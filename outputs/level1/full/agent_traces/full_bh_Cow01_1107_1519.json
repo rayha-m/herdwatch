@@ -1,0 +1,142 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow01_1107_1519",
+  "kind": "behaviour",
+  "cam": "Cam 03",
+  "ts": "2026-11-07 15:19:30.566667",
+  "box": [
+   "403",
+   "661",
+   "681",
+   "858"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.953543596843655,
+  "cow": 1,
+  "minute": "2026-11-07 15:19:00",
+  "question": "What is Cow01 doing during this minute? Tracker says 'social_interaction' (sample votes: {'standing': 0.4, 'social_interaction': 0.6}).",
+  "context": "30 samples this minute; night=False; posture P(standing)=0.95"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow01_1107_1519 (behaviour). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-07 15:19:30.566667.\nTracker context: 30 samples this minute; night=False; posture P(standing)=0.95\nQuestion: What is Cow01 doing during this minute? Tracker says 'social_interaction' (sample votes: {'standing': 0.4, 'social_interaction': 0.6}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       -8,
+       8,
+       20
+      ]
+     }
+    },
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset -8s (box shows the case-time position)",
+    "offset +8s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-20s.jpg",
+    "04_seq_-8s.jpg",
+    "05_seq_+8s.jpg",
+    "06_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 0.38, \"peak_to_median\": 5.3, \"motion_energy\": 0.118, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 8,
+      "pad": 0.4
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_+8s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "standing",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.6,
+      "evidence": "Cow01 (red ear tag) stands stationary in mid-pen across -20 to +20 s, side by side with a yellow-tagged cow, head turned toward that cow's head/neck but no visible butting, licking or mounting. Away from bunk and waterer. chew_check 0.38 Hz (not rumination range). Ears up, head level, normal flank, with group.",
+      "self_check": "Checked 4 time offsets plus zoom at +8 s and chew_check. Posture stable standing. Could be wrong if subtle head contact/sniffing with the adjacent cow counts as social interaction (tracker voted 0.6 social), which is not resolvable from this wide view."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:27:32",
+ "answer": {
+  "behavior": "standing",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.6,
+  "evidence": "Cow01 (red ear tag) stands stationary in mid-pen across -20 to +20 s, side by side with a yellow-tagged cow, head turned toward that cow's head/neck but no visible butting, licking or mounting. Away from bunk and waterer. chew_check 0.38 Hz (not rumination range). Ears up, head level, normal flank, with group.",
+  "self_check": "Checked 4 time offsets plus zoom at +8 s and chew_check. Posture stable standing. Could be wrong if subtle head contact/sniffing with the adjacent cow counts as social interaction (tracker voted 0.6 social), which is not resolvable from this wide view.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

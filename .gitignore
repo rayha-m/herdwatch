@@ -1,0 +1,63 @@
+# --- Raw video (never commit) ---
+videos/
+video/
+data/raw/
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.avi
+*.mkv
+*.dav
+*.h264
+*.crdownload
+# Short evidence clips are explicitly allowed:
+!outputs/evidence_clips/*.mp4
+
+# --- Extracted frames / caches ---
+frames/
+extracted_frames/
+data/frames/
+cache/
+runs/
+
+# --- Model weights ---
+*.pt
+*.pth
+*.onnx
+*.engine
+*.safetensors
+*.ckpt
+*.mlpackage/
+weights/
+models/weights/
+
+# --- Secrets ---
+.env
+.env.*
+!.env.example
+*.key
+secrets/
+api_keys*
+
+# --- Source docs received privately ---
+docs_private/
+
+# --- Python / OS ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+.DS_Store
+
+# --- Intermediate pipeline state ---
+work/
+.env
+
+# --- Event imagery that is not a deliverable (agent's working frames, zone overlays) ---
+outputs/**/agent_traces/*/
+docs/*.jpg
+outputs/**/*.parquet
+STATUS.md
+outputs/**/herd_prototypes.json

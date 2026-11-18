@@ -1,0 +1,164 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow09_1107_1907",
+  "kind": "behaviour_night",
+  "cam": "Cam 03",
+  "ts": "2026-11-07 19:07:16.533333",
+  "box": [
+   "404",
+   "524",
+   "468",
+   "585"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 1.0,
+  "posture_prob_standing": 0.9786609635036796,
+  "cow": 9,
+  "minute": "2026-11-07 19:07:00",
+  "question": "What is Cow09 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 1.0}).",
+  "context": "17 samples this minute; night=True; posture P(standing)=0.98"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow09_1107_1907 (behaviour_night). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-07 19:07:16.533333.\nTracker context: 17 samples this minute; night=True; posture P(standing)=0.98\nQuestion: What is Cow09 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 1.0}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -25,
+       -10,
+       10,
+       25
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -25s (box shows the case-time position)",
+    "offset -10s (box shows the case-time position)",
+    "offset +10s (box shows the case-time position)",
+    "offset +25s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-25s.jpg",
+    "04_seq_-10s.jpg",
+    "05_seq_+10s.jpg",
+    "06_seq_+25s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": -5,
+      "pad": 1.5
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 8,
+      "pad": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_-5s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "08_look_+8s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_other_camera",
+     "input": {
+      "camera": "Cam 01",
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_other_camera",
+   "result": [],
+   "images": [
+    "09_other_Cam01.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "drinking",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.4,
+      "evidence": "Infrared night footage. In Cam 03, the boxed cow is standing inside the waterer zone, just left of and in front of the white waterer. Her body faces away from the camera, and another standing cow is partly blocking her. She stays in about the same spot from \u221225 s to +10 s. In Cam 01 at the same moment, a dark cow is standing right beside the waterer. I could not see her muzzle in the trough in any frame.",
+      "self_check": "I checked frames from \u221225 s to +25 s and Cam 01 at the case time. Both support a standing cow staying at the waterer, which matches the tracker's 17 'drinking' votes. Her muzzle is never clearly visible: it is hidden by her own body, the other cow, and the low IR resolution. If she was just standing next to the waterer, or ruminating, the answer is wrong. I did not run chew_check. Clinical signs cannot be assessed in this light."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:26:27",
+ "answer": {
+  "behavior": "drinking",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.4,
+  "evidence": "Infrared night footage. In Cam 03, the boxed cow is standing inside the waterer zone, just left of and in front of the white waterer. Her body faces away from the camera, and another standing cow is partly blocking her. She stays in about the same spot from \u221225 s to +10 s. In Cam 01 at the same moment, a dark cow is standing right beside the waterer. I could not see her muzzle in the trough in any frame.",
+  "self_check": "I checked frames from \u221225 s to +25 s and Cam 01 at the case time. Both support a standing cow staying at the waterer, which matches the tracker's 17 'drinking' votes. Her muzzle is never clearly visible: it is hidden by her own body, the other cow, and the low IR resolution. If she was just standing next to the waterer, or ruminating, the answer is wrong. I did not run chew_check. Clinical signs cannot be assessed in this light.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 4
+}

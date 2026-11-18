@@ -1,0 +1,161 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow06_1107_1444",
+  "kind": "behaviour",
+  "cam": "Cam 03",
+  "ts": "2026-11-07 14:44:50.533333",
+  "box": [
+   "892",
+   "573",
+   "922",
+   "610"
+  ],
+  "bunk_ov": 0.1945945945945946,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.6603039451897188,
+  "cow": 6,
+  "minute": "2026-11-07 14:44:00",
+  "question": "What is Cow06 doing during this minute? Tracker says 'social_interaction' (sample votes: {'social_interaction': 1.0}).",
+  "context": "1 samples this minute; night=False; posture P(standing)=0.66"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow06_1107_1444 (behaviour). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-07 14:44:50.533333.\nTracker context: 1 samples this minute; night=False; posture P(standing)=0.66\nQuestion: What is Cow06 doing during this minute? Tracker says 'social_interaction' (sample votes: {'social_interaction': 1.0}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       0,
+       20
+      ]
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 0,
+      "pad": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-20s.jpg",
+    "04_seq_+0s.jpg",
+    "05_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "06_look_+0s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_other_camera",
+     "input": {
+      "camera": "Cam 01",
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_other_camera",
+   "result": [],
+   "images": [
+    "07_other_Cam01.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 20,
+      "pad": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "08_look_+20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "standing",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.45,
+      "evidence": "Cam 03 frames at -20, 0 and +20 s show the boxed cow in a tight group of 4\u20135 cows near the fence, south of the bunk zone. In the zoomed views, the cow at the box is standing with her back to the camera and her head close to a neighbour's. She stays in about the same place for the 40 s. She is not at the bunk or the waterer, and I saw no butting, licking or mounting.",
+      "self_check": "I checked two time offsets in zoomed crops and a wide sequence, which agree that she is standing still. Cam 01 did not clearly show this group. The small box covers overlapping cows, so I may be looking at the wrong animal. Calm contact between heads could also count as social interaction, as the tracker said, but I did not see an active interaction. I did not run chew_check. Clinical signs can't be judged at this resolution."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:27:52",
+ "answer": {
+  "behavior": "standing",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.45,
+  "evidence": "Cam 03 frames at -20, 0 and +20 s show the boxed cow in a tight group of 4\u20135 cows near the fence, south of the bunk zone. In the zoomed views, the cow at the box is standing with her back to the camera and her head close to a neighbour's. She stays in about the same place for the 40 s. She is not at the bunk or the waterer, and I saw no butting, licking or mounting.",
+  "self_check": "I checked two time offsets in zoomed crops and a wide sequence, which agree that she is standing still. Cam 01 did not clearly show this group. The small box covers overlapping cows, so I may be looking at the wrong animal. Calm contact between heads could also count as social interaction, as the tracker said, but I did not see an active interaction. I did not run chew_check. Clinical signs can't be judged at this resolution.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 4
+}

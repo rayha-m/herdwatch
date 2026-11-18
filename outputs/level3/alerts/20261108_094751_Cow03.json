@@ -1,0 +1,16 @@
+{
+ "time": "2026-11-08 09:47:51.666667",
+ "camera": "Cam 03",
+ "cow_id": "Cow03",
+ "risk_before": 0.816,
+ "risk_after": 0.98,
+ "trigger": "lying while herd feeds",
+ "reasons": [
+  "lying 4 min while >= 60% of pen-mates were feeding",
+  "feeding 0% / lying 100% of the 6 observed minutes in this clip"
+ ],
+ "clinical": null,
+ "clip": "outputs/level3/alerts/20261108_094751_Cow03.mp4",
+ "message": "PEN 6 ALERT Sun 09:47 Cow03: risk 0.82 -> 0.98. lying 4 min while >= 60% of pen-mates were feeding; feeding 0% / lying 100% of the 6 observed minutes in this clip. Visible signs (agent): not checked. Check temp, ears, nose, breathing. Clip: 20261108_094751_Cow03.mp4",
+ "source_clip": "Event20261108094617003.Avi"
+}

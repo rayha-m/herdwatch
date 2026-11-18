@@ -1,0 +1,212 @@
+{
+ "case": {
+  "case_id": "full_id_Event20261108135132003_1",
+  "kind": "identity",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 13:55:40.666667",
+  "box": [
+   "103",
+   "636",
+   "305",
+   "802"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.2120482536670092,
+  "track": "Event20261108135132003_1",
+  "question": "Which of the candidate cows (Cow03, Cow02, Cow06) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+  "context": "tracker assigned Cow03 with a small margin (0.16)",
+  "candidates": [
+   [
+    "Cow03",
+    "Cam 02",
+    "2026-11-07 17:07:42.266667",
+    [
+     "103",
+     "146",
+     "538",
+     "776"
+    ]
+   ],
+   [
+    "Cow02",
+    "Cam 02",
+    "2026-11-07 13:37:47.266667",
+    [
+     "521",
+     "231",
+     "1023",
+     "720"
+    ]
+   ],
+   [
+    "Cow06",
+    "Cam 02",
+    "2026-11-08 17:21:10.166667",
+    [
+     "671",
+     "195",
+     "1189",
+     "756"
+    ]
+   ]
+  ]
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_id_Event20261108135132003_1 (identity). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 13:55:40.666667.\nTracker context: tracker assigned Cow03 with a small margin (0.16)\nQuestion: Which of the candidate cows (Cow03, Cow02, Cow06) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow03",
+   "images": [
+    "03_cand_Cow03.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow02",
+   "images": [
+    "04_cand_Cow02.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow06",
+   "images": [
+    "05_cand_Cow06.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    },
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -30,
+       -10,
+       10,
+       30
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 0.38, \"peak_to_median\": 11.2, \"motion_energy\": 0.359, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -30s (box shows the case-time position)",
+    "offset -10s (box shows the case-time position)",
+    "offset +10s (box shows the case-time position)",
+    "offset +30s (box shows the case-time position)"
+   ],
+   "images": [
+    "06_seq_-30s.jpg",
+    "07_seq_-10s.jpg",
+    "08_seq_+10s.jpg",
+    "09_seq_+30s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": -10,
+      "pad": 0.3
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 20,
+      "pad": 0.3
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "10_look_-10s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "11_look_+20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "lying",
+      "posture": "lying",
+      "same_cow_as_candidate": "none",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.4,
+      "evidence": "Close-up views at 0, -10 s and +20 s, and whole-pen frames at -30, -10, +10 and +30 s. The boxed cow is lying on her chest with her legs out, at the far left of the pen, away from the main group. She has a pink tag hanging from one ear and a small yellow button tag in the other. No white markings are visible, and she looks like an average-sized cow. At the case time her head is tipped back with her mouth open, which looks like a short stretch or yawn. In the other frames her head is up and calm, and she stays in the same spot. The chew check found a dominant frequency of 0.38 Hz. That is below the 0.7-1.4 Hz cud-chewing range, so she was not ruminating. All three candidate reference crops were unavailable, so I could not compare tags or body shape against Cow03, Cow02 or Cow06.",
+      "self_check": "I confirmed she was lying across about 60 seconds of whole-pen frames and checked for cud chewing with chew_check, so I'm fairly sure of the behaviour. I'm not giving an identity because there were no reference images to match against. The tracker's pick of Cow03, by a small margin, is untested. A reference crop showing which cow wears a pink dangle tag plus a yellow button tag would settle it. Her ears looked normal, and one open-mouth frame is not enough to call laboured breathing. She is lying apart from the group, but resting cows often do that, so I did not list it as a sign. If the herd's tags were known, the answer could change to one of the candidates."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:25:30",
+ "answer": {
+  "behavior": "lying",
+  "posture": "lying",
+  "same_cow_as_candidate": "none",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.4,
+  "evidence": "Close-up views at 0, -10 s and +20 s, and whole-pen frames at -30, -10, +10 and +30 s. The boxed cow is lying on her chest with her legs out, at the far left of the pen, away from the main group. She has a pink tag hanging from one ear and a small yellow button tag in the other. No white markings are visible, and she looks like an average-sized cow. At the case time her head is tipped back with her mouth open, which looks like a short stretch or yawn. In the other frames her head is up and calm, and she stays in the same spot. The chew check found a dominant frequency of 0.38 Hz. That is below the 0.7-1.4 Hz cud-chewing range, so she was not ruminating. All three candidate reference crops were unavailable, so I could not compare tags or body shape against Cow03, Cow02 or Cow06.",
+  "self_check": "I confirmed she was lying across about 60 seconds of whole-pen frames and checked for cud chewing with chew_check, so I'm fairly sure of the behaviour. I'm not giving an identity because there were no reference images to match against. The tracker's pick of Cow03, by a small margin, is untested. A reference crop showing which cow wears a pink dangle tag plus a yellow button tag would settle it. Her ears looked normal, and one open-mouth frame is not enough to call laboured breathing. She is lying apart from the group, but resting cows often do that, so I did not list it as a sign. If the herd's tags were known, the answer could change to one of the candidates.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

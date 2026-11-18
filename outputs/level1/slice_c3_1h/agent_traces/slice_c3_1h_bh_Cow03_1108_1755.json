@@ -1,0 +1,143 @@
+{
+ "case": {
+  "case_id": "slice_c3_1h_bh_Cow03_1108_1755",
+  "kind": "behaviour_night",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 17:55:31.566667",
+  "box": [
+   "421",
+   "624",
+   "678",
+   "791"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.9550987524219262,
+  "cow": 3,
+  "minute": "2026-11-08 17:55:00",
+  "question": "What is Cow03 doing during this minute? Tracker says 'standing' (sample votes: {'standing': 0.65, 'social_interaction': 0.35}).",
+  "context": "31 samples this minute; night=True; posture P(standing)=0.96"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE slice_c3_1h_bh_Cow03_1108_1755 (behaviour_night). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 17:55:31.566667.\nTracker context: 31 samples this minute; night=True; posture P(standing)=0.96\nQuestion: What is Cow03 doing during this minute? Tracker says 'standing' (sample votes: {'standing': 0.65, 'social_interaction': 0.35}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       -8,
+       8,
+       20
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset -8s (box shows the case-time position)",
+    "offset +8s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-20s.jpg",
+    "04_seq_-8s.jpg",
+    "05_seq_+8s.jpg",
+    "06_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": -8,
+      "pad": 0.4
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 8,
+      "pad": 0.4
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_-8s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "08_look_+8s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "social_interaction",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.55,
+      "evidence": "The IR frames at dusk are clear enough to read. At -20 s, -8 s and the case time, Cow03 is standing with her head lowered and her muzzle against the head and neck of the white-faced cow. The zoom at -8 s shows them head-to-head, nose to face. By +8 s and +20 s she has turned, and the group of standing cows is rearranging around her. She is not near the bunk or the waterer.",
+      "self_check": "I checked four other times (-20, -8, +8, +20 s) and two close-up crops. The head-to-head contact lasts at least about 30 s around the case time, which matches the tracker's 35% social votes. This could be wrong in two ways. The contact may be only brief sniffing, in which case the tracker's 'standing' label would win for most of the minute. Or the box may switch to a different cow after she turns, because the cows are bunched together and hard to tell apart. In the dim IR light I could not judge clinical signs."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "04:06:09",
+ "answer": {
+  "behavior": "social_interaction",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.55,
+  "evidence": "The IR frames at dusk are clear enough to read. At -20 s, -8 s and the case time, Cow03 is standing with her head lowered and her muzzle against the head and neck of the white-faced cow. The zoom at -8 s shows them head-to-head, nose to face. By +8 s and +20 s she has turned, and the group of standing cows is rearranging around her. She is not near the bunk or the waterer.",
+  "self_check": "I checked four other times (-20, -8, +8, +20 s) and two close-up crops. The head-to-head contact lasts at least about 30 s around the case time, which matches the tracker's 35% social votes. This could be wrong in two ways. The contact may be only brief sniffing, in which case the tracker's 'standing' label would win for most of the minute. Or the box may switch to a different cow after she turns, because the cows are bunched together and hard to tell apart. In the dim IR light I could not judge clinical signs.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

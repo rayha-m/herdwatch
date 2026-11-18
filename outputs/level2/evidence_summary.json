@@ -1,0 +1,27 @@
+[
+ {
+  "cow_id": "Cow02",
+  "clips": [
+   "Cow02_1_Cam03_1107_072701.mp4",
+   "Cow02_2_Cam02_1107_160817.mp4"
+  ],
+  "clinical": null
+ },
+ {
+  "cow_id": "Cow04",
+  "clips": [
+   "Cow04_1_Cam03_1107_072601.mp4",
+   "Cow04_2_Cam02_1108_163933.mp4"
+  ],
+  "clinical": null
+ },
+ {
+  "cow_id": "Cow03",
+  "clips": [
+   "Cow03_1_Cam03_1107_072731.mp4",
+   "Cow03_2_Cam03_1108_131714.mp4",
+   "Cow03_3_Cam02_1108_162558.mp4"
+  ],
+  "clinical": null
+ }
+]

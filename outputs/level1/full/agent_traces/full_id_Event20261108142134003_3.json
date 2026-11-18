@@ -1,0 +1,213 @@
+{
+ "case": {
+  "case_id": "full_id_Event20261108142134003_3",
+  "kind": "identity",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 14:22:08.600000",
+  "box": [
+   "472",
+   "480",
+   "605",
+   "573"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.6267281105990783,
+  "posture_prob_standing": 0.9879514714789531,
+  "track": "Event20261108142134003_3",
+  "question": "Which of the candidate cows (Cow08, Cow01, Cow07) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+  "context": "tracker assigned Cow08 with a small margin (0.20)",
+  "candidates": [
+   [
+    "Cow08",
+    "Cam 02",
+    "2026-11-07 16:39:57.166667",
+    [
+     "500",
+     "217",
+     "1124",
+     "715"
+    ]
+   ],
+   [
+    "Cow01",
+    "Cam 02",
+    "2026-11-07 17:26:06.233333",
+    [
+     "580",
+     "180",
+     "1163",
+     "777"
+    ]
+   ],
+   [
+    "Cow07",
+    "Cam 02",
+    "2026-11-07 09:12:34.166667",
+    [
+     "189",
+     "107",
+     "706",
+     "815"
+    ]
+   ]
+  ]
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_id_Event20261108142134003_3 (identity). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 14:22:08.600000.\nTracker context: tracker assigned Cow08 with a small margin (0.20)\nQuestion: Which of the candidate cows (Cow08, Cow01, Cow07) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow08",
+   "images": [
+    "03_cand_Cow08.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow01",
+   "images": [
+    "04_cand_Cow01.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow07",
+   "images": [
+    "05_cand_Cow07.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 0,
+      "pad": 0.3
+     }
+    },
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       0,
+       20,
+       40
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "06_look_+0s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)",
+    "offset +40s (box shows the case-time position)"
+   ],
+   "images": [
+    "07_seq_-20s.jpg",
+    "08_seq_+0s.jpg",
+    "09_seq_+20s.jpg",
+    "10_seq_+40s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_other_camera",
+     "input": {
+      "camera": "Cam 01",
+      "offset_s": 0
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": -20,
+      "pad": 0.3
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_other_camera",
+   "result": [],
+   "images": [
+    "11_other_Cam01.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "12_look_-20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "standing",
+      "posture": "standing",
+      "same_cow_as_candidate": "none",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.3,
+      "evidence": "Cam 03 zoomed crops at -20 s and 0 s show a solid black, polled, medium-sized Angus standing broadside right next to the yellow waterer, facing left. Her head is level and her muzzle is beside the waterer, not in it. At 0 s her tail is raised and there is a wet patch under her, so she is probably urinating. The wide frames at -20, 0, +20 and +40 s show her in the same spot throughout, so she is not walking. Cam 01 at 0 s also shows her standing at the waterer. No white markings and no ear tag are visible on her right side or head at this resolution. All three candidate reference crops (Cow08, Cow01, Cow07) were unavailable, so I could not compare tag colour, ear side or body shape.",
+      "self_check": "I checked the behaviour across four time offsets and a second camera (Cam 01); it was consistently standing next to the waterer without drinking. I did not run chew_check, so I can't rule out rumination while standing. She could also have drunk briefly between frames, which would change the label to drinking. I could not confirm or reject her identity: there were no reference images and no readable tag. The tracker's Cow08 is not contradicted, but I can't confirm it, so the identity question remains unresolved. This case should be re-checked with reference images or a close Cam 02 view of her ear tag. Her ears, head carriage and flank looked normal, but the resolution only allows a coarse assessment."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:26:10",
+ "answer": {
+  "behavior": "standing",
+  "posture": "standing",
+  "same_cow_as_candidate": "none",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.3,
+  "evidence": "Cam 03 zoomed crops at -20 s and 0 s show a solid black, polled, medium-sized Angus standing broadside right next to the yellow waterer, facing left. Her head is level and her muzzle is beside the waterer, not in it. At 0 s her tail is raised and there is a wet patch under her, so she is probably urinating. The wide frames at -20, 0, +20 and +40 s show her in the same spot throughout, so she is not walking. Cam 01 at 0 s also shows her standing at the waterer. No white markings and no ear tag are visible on her right side or head at this resolution. All three candidate reference crops (Cow08, Cow01, Cow07) were unavailable, so I could not compare tag colour, ear side or body shape.",
+  "self_check": "I checked the behaviour across four time offsets and a second camera (Cam 01); it was consistently standing next to the waterer without drinking. I did not run chew_check, so I can't rule out rumination while standing. She could also have drunk briefly between frames, which would change the label to drinking. I could not confirm or reject her identity: there were no reference images and no readable tag. The tracker's Cow08 is not contradicted, but I can't confirm it, so the identity question remains unresolved. This case should be re-checked with reference images or a close Cam 02 view of her ear tag. Her ears, head carriage and flank looked normal, but the resolution only allows a coarse assessment.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

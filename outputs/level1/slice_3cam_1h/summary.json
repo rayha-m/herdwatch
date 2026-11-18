@@ -1,0 +1,31 @@
+{
+ "cams": [
+  "Cam 01",
+  "Cam 02",
+  "Cam 03"
+ ],
+ "start": "2026-11-08 17:00:00",
+ "end": "2026-11-08 18:00:00",
+ "samples": 32782,
+ "tracklets": 437,
+ "cows_assigned": 10,
+ "minutes": 60,
+ "cow_minutes_observed": 505,
+ "cow_minutes_total": 600,
+ "label_counts": {
+  "feeding": 316,
+  "other_not_visible": 95,
+  "standing": 88,
+  "drinking": 54,
+  "lying": 41,
+  "social_interaction": 6
+ },
+ "source_counts": {
+  "observed": 499,
+  "not_observed": 95,
+  "estimated": 6
+ },
+ "agent_cases": 0,
+ "agent_calls_used_total": 27,
+ "agent_call_cap": 400
+}

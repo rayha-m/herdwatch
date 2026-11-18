@@ -1,0 +1,156 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow10_1108_1445",
+  "kind": "behaviour",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 14:45:20.200000",
+  "box": [
+   "454",
+   "487",
+   "558",
+   "552"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.8,
+  "posture_prob_standing": 0.9909871138035122,
+  "cow": 10,
+  "minute": "2026-11-08 14:45:00",
+  "question": "What is Cow10 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 1.0}).",
+  "context": "26 samples this minute; night=False; posture P(standing)=0.99"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow10_1108_1445 (behaviour). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 14:45:20.200000.\nTracker context: 26 samples this minute; night=False; posture P(standing)=0.99\nQuestion: What is Cow10 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 1.0}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       0,
+       20
+      ]
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 15,
+      "pad": 0.5
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)",
+    "(image unavailable for this time/camera)"
+   ],
+   "images": [
+    "03_seq_-20s.jpg",
+    "04_seq_+0s.jpg",
+    "05_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "06_look_+15s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": -15,
+      "pad": 0.5
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 5,
+      "pad": 0.5
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_-15s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "08_look_+5s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "drinking",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.7,
+      "evidence": "Close-up crops show the boxed cow (the all-black one behind the white-faced cow) standing at the yellow waterer the whole time. At -15 s and 0 s her head is down inside the waterer, behind the rail. At +5 s and +15 s her head is raised to rail height, still right over the waterer, which looks like a pause between swallows. She stays in the same spot across the frames, so she is not walking. Her ears and head carriage look normal, and I saw no discharge, but the resolution is limited.",
+      "self_check": "I checked four time offsets (-15, 0, +5 and +15 s) and the whole-camera frames at -20 and 0 s; the +20 s frame was not available. Her muzzle was clearly in the waterer at 2 of the 4 offsets, and her head stayed raised over it at the other two. If those raised-head periods take up most of the minute, the better label would be standing at the waterer. I may also have the wrong cow: the white-faced cow next to her overlaps the box, but her head is away from the waterer."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:26:45",
+ "answer": {
+  "behavior": "drinking",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.7,
+  "evidence": "Close-up crops show the boxed cow (the all-black one behind the white-faced cow) standing at the yellow waterer the whole time. At -15 s and 0 s her head is down inside the waterer, behind the rail. At +5 s and +15 s her head is raised to rail height, still right over the waterer, which looks like a pause between swallows. She stays in the same spot across the frames, so she is not walking. Her ears and head carriage look normal, and I saw no discharge, but the resolution is limited.",
+  "self_check": "I checked four time offsets (-15, 0, +5 and +15 s) and the whole-camera frames at -20 and 0 s; the +20 s frame was not available. Her muzzle was clearly in the waterer at 2 of the 4 offsets, and her head stayed raised over it at the other two. If those raised-head periods take up most of the minute, the better label would be standing at the waterer. I may also have the wrong cow: the white-faced cow next to her overlaps the box, but her head is away from the waterer.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

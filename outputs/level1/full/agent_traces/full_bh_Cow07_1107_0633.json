@@ -1,0 +1,142 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow07_1107_0633",
+  "kind": "behaviour",
+  "cam": "Cam 01",
+  "ts": "2026-11-07 06:33:01.566667",
+  "box": [
+   "693",
+   "154",
+   "715",
+   "198"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.8309293026804553,
+  "cow": 7,
+  "minute": "2026-11-07 06:33:00",
+  "question": "What is Cow07 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 0.5, 'standing': 0.47, 'social_interaction': 0.03}).",
+  "context": "60 samples this minute; night=False; posture P(standing)=0.83"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow07_1107_0633 (behaviour). Camera Cam 01 (front cam 1 (pen interior, looks back from the bunk)), time 2026-11-07 06:33:01.566667.\nTracker context: 60 samples this minute; night=False; posture P(standing)=0.83\nQuestion: What is Cow07 doing during this minute? Tracker says 'drinking' (sample votes: {'drinking': 0.5, 'standing': 0.47, 'social_interaction': 0.03}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -25,
+       -10,
+       10,
+       25
+      ]
+     }
+    },
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 15,
+      "pad": 1
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -25s (box shows the case-time position)",
+    "offset -10s (box shows the case-time position)",
+    "offset +10s (box shows the case-time position)",
+    "offset +25s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-25s.jpg",
+    "04_seq_-10s.jpg",
+    "05_seq_+10s.jpg",
+    "06_seq_+25s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "07_look_+15s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 0.5, \"peak_to_median\": 6.6, \"motion_energy\": 0.309, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "standing",
+      "posture": "standing",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.72,
+      "evidence": "Cow07 box is at the far back fence (top centre), well outside the waterer zone; the cow at the waterer is a different animal. Sequence at -25/-10/+10/+25 s shows her stationary at the same spot, facing camera, upright. Zoom at +15 s: standing, head roughly level/turned, muzzle not at feed or water. Chew_check 0.5 Hz (outside the rumination band).",
+      "self_check": "Checked several time offsets and ran chew_check. Drinking votes likely come from confusion with the cow at the waterer or the nearby group (mounting at -10 s). Could be wrong if the track ID switched cows or if the slow rhythm is actually cud chewing (then ruminating_standing). Far-field resolution is too low to judge clinical signs."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:26:55",
+ "answer": {
+  "behavior": "standing",
+  "posture": "standing",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.72,
+  "evidence": "Cow07 box is at the far back fence (top centre), well outside the waterer zone; the cow at the waterer is a different animal. Sequence at -25/-10/+10/+25 s shows her stationary at the same spot, facing camera, upright. Zoom at +15 s: standing, head roughly level/turned, muzzle not at feed or water. Chew_check 0.5 Hz (outside the rumination band).",
+  "self_check": "Checked several time offsets and ran chew_check. Drinking votes likely come from confusion with the cow at the waterer or the nearby group (mounting at -10 s). Could be wrong if the track ID switched cows or if the slow rhythm is actually cud chewing (then ruminating_standing). Far-field resolution is too low to judge clinical signs.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 3
+}

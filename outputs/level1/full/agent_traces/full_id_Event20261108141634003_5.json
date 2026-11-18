@@ -1,0 +1,159 @@
+{
+ "case": {
+  "case_id": "full_id_Event20261108141634003_5",
+  "kind": "identity",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 14:16:36.600000",
+  "box": [
+   "556",
+   "601",
+   "663",
+   "761"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.8816120744970491,
+  "track": "Event20261108141634003_5",
+  "question": "Which of the candidate cows (Cow02, Cow07, Cow01) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+  "context": "tracker assigned Cow02 with a small margin (0.11)",
+  "candidates": [
+   [
+    "Cow02",
+    "Cam 02",
+    "2026-11-07 13:37:47.266667",
+    [
+     "521",
+     "231",
+     "1023",
+     "720"
+    ]
+   ],
+   [
+    "Cow07",
+    "Cam 02",
+    "2026-11-07 09:12:34.166667",
+    [
+     "189",
+     "107",
+     "706",
+     "815"
+    ]
+   ],
+   [
+    "Cow01",
+    "Cam 02",
+    "2026-11-07 17:26:06.233333",
+    [
+     "580",
+     "180",
+     "1163",
+     "777"
+    ]
+   ]
+  ]
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_id_Event20261108141634003_5 (identity). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 14:16:36.600000.\nTracker context: tracker assigned Cow02 with a small margin (0.11)\nQuestion: Which of the candidate cows (Cow02, Cow07, Cow01) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow02",
+   "images": [
+    "03_cand_Cow02.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow07",
+   "images": [
+    "04_cand_Cow07.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow01",
+   "images": [
+    "05_cand_Cow01.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       0,
+       20
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +0s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "06_seq_-20s.jpg",
+    "07_seq_+0s.jpg",
+    "08_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "standing",
+      "posture": "standing",
+      "same_cow_as_candidate": "none",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.3,
+      "evidence": "The zoomed crop shows an all-black Angus cow standing with her rear to the camera. Her flank and hindquarters are muddy, and I saw no white markings on her. Her head is turned away to the right. A yellow tag may show in one ear, but at this angle it could belong to the lying cow behind her. The lying cow behind her has a white face and a pink tag, and she is a different animal. The frames at -20, 0 and +20 s show the boxed cow standing in the same spot in the middle of the pen. She turns slightly but does not walk anywhere. She is not at the feed bunk or the waterer. The reference images for Cow02, Cow07 and Cow01 were all missing, so I couldn't compare tag colour, ear side, white markings or body size against them.",
+      "self_check": "I checked her behaviour across three time offsets 40 s apart: she stays standing in place and is away from the bunk and the waterer. I did not run chew_check, so I can't rule out ruminating_standing. I can't confirm who she is. The tracker's Cow02 guess (margin 0.11) is still possible but unverified. If a candidate is the only one with a yellow tag, that could settle it. Her face is not visible, so I couldn't assess clinical signs."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:26:14",
+ "answer": {
+  "behavior": "standing",
+  "posture": "standing",
+  "same_cow_as_candidate": "none",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.3,
+  "evidence": "The zoomed crop shows an all-black Angus cow standing with her rear to the camera. Her flank and hindquarters are muddy, and I saw no white markings on her. Her head is turned away to the right. A yellow tag may show in one ear, but at this angle it could belong to the lying cow behind her. The lying cow behind her has a white face and a pink tag, and she is a different animal. The frames at -20, 0 and +20 s show the boxed cow standing in the same spot in the middle of the pen. She turns slightly but does not walk anywhere. She is not at the feed bunk or the waterer. The reference images for Cow02, Cow07 and Cow01 were all missing, so I couldn't compare tag colour, ear side, white markings or body size against them.",
+  "self_check": "I checked her behaviour across three time offsets 40 s apart: she stays standing in place and is away from the bunk and the waterer. I did not run chew_check, so I can't rule out ruminating_standing. I can't confirm who she is. The tracker's Cow02 guess (margin 0.11) is still possible but unverified. If a candidate is the only one with a yellow tag, that could settle it. Her face is not visible, so I couldn't assess clinical signs.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 2
+}

@@ -1,0 +1,193 @@
+{
+ "case": {
+  "case_id": "full_bh_Cow04_1107_0605",
+  "kind": "behaviour_night",
+  "cam": "Cam 03",
+  "ts": "2026-11-07 06:05:30.600000",
+  "box": [
+   "809",
+   "631",
+   "928",
+   "720"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.9288535419096681,
+  "cow": 4,
+  "minute": "2026-11-07 06:05:00",
+  "question": "What is Cow04 doing during this minute? Tracker says 'social_interaction' (sample votes: {'standing': 0.37, 'social_interaction': 0.63}).",
+  "context": "30 samples this minute; night=True; posture P(standing)=0.93"
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_bh_Cow04_1107_0605 (behaviour_night). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-07 06:05:30.600000.\nTracker context: 30 samples this minute; night=True; posture P(standing)=0.93\nQuestion: What is Cow04 doing during this minute? Tracker says 'social_interaction' (sample votes: {'standing': 0.37, 'social_interaction': 0.63}).",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -25,
+       -10,
+       10,
+       25
+      ]
+     }
+    },
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -25s (box shows the case-time position)",
+    "offset -10s (box shows the case-time position)",
+    "offset +10s (box shows the case-time position)",
+    "offset +25s (box shows the case-time position)"
+   ],
+   "images": [
+    "03_seq_-25s.jpg",
+    "04_seq_-10s.jpg",
+    "05_seq_+10s.jpg",
+    "06_seq_+25s.jpg"
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"dominant_hz\": 3.51, \"peak_to_median\": 3.1, \"motion_energy\": 0.033, \"interpretation_hint\": \"rhythmic 0.7-1.4 Hz with peak_to_median > 4 suggests chewing (rumination)\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look_other_camera",
+     "input": {
+      "camera": "Cam 01",
+      "offset_s": 0
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look_other_camera",
+   "result": [],
+   "images": [
+    "07_other_Cam01.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "lying",
+      "posture": "lying",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.8,
+      "evidence": "Zoomed IR crop shows Cow04 in sternal recumbency (forelimb folded under, head up) overlapping the lying cow in front of her, which likely triggered the tracker's standing/social votes. Sequence -25s to +25s: no position or posture change, no head-to-head/butting/licking. Cam 01 at same time shows the whole herd lying together. chew_check 3.5 Hz, peak/median 3.1: not rumination-like.",
+      "self_check": "Verified by time sequence (static all minute), Cam 01 second view (no standing cows), and chew_check (no rhythmic 0.7-1.4 Hz). Would be wrong if the box is a different animal or if IR noise hid cud chewing (then ruminating_lying). Night IR prevents assessing ears/discharge/breathing."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "SELF-CHECK FAILED: the posture model is >90% sure this cow is standing. Look again (different offset or camera) and resubmit; keep your answer only if the new evidence clearly supports it."
+   ],
+   "images": []
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "look",
+     "input": {
+      "offset_s": 15,
+      "pad": 0.8
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "look",
+   "result": [],
+   "images": [
+    "08_look_+15s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "lying",
+      "posture": "lying",
+      "same_cow_as_candidate": "n/a",
+      "clinical_signs": [
+       "not_assessable"
+      ],
+      "confidence": 0.8,
+      "evidence": "Re-looked at +15s with wider crop: Cow04 is clearly sternal recumbent, body on the ground, forelegs folded under the brisket, head up; no legs extended beneath her. Overlaps the lying cow in front, probably confusing the posture model. Sequence -25..+25s static, no social contact. Cam 01 shows all cows lying. chew_check 3.5 Hz, peak/median 3.1, not rumination.",
+      "self_check": "Second look at a different offset (+15s, pad 0.8) clearly confirms lying, contradicting posture model P(standing)=0.93. Plus Cam 01 and time sequence. Could be wrong only if the box is the wrong animal or IR hides cud chewing (would be ruminating_lying)."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:27:26",
+ "answer": {
+  "behavior": "lying",
+  "posture": "lying",
+  "same_cow_as_candidate": "n/a",
+  "clinical_signs": [
+   "not_assessable"
+  ],
+  "confidence": 0.8,
+  "evidence": "Re-looked at +15s with wider crop: Cow04 is clearly sternal recumbent, body on the ground, forelegs folded under the brisket, head up; no legs extended beneath her. Overlaps the lying cow in front, probably confusing the posture model. Sequence -25..+25s static, no social contact. Cam 01 shows all cows lying. chew_check 3.5 Hz, peak/median 3.1, not rumination.",
+  "self_check": "Second look at a different offset (+15s, pad 0.8) clearly confirms lying, contradicting posture model P(standing)=0.93. Plus Cam 01 and time sequence. Could be wrong only if the box is the wrong animal or IR hides cud chewing (would be ruminating_lying).",
+  "geometry_issues": [
+   "the posture model is >90% sure this cow is standing"
+  ],
+  "rechecked": true
+ },
+ "rounds": 5
+}

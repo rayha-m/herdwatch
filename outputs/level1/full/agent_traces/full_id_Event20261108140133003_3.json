@@ -1,0 +1,170 @@
+{
+ "case": {
+  "case_id": "full_id_Event20261108140133003_3",
+  "kind": "identity",
+  "cam": "Cam 03",
+  "ts": "2026-11-08 14:03:55.566667",
+  "box": [
+   "698",
+   "653",
+   "884",
+   "755"
+  ],
+  "bunk_ov": 0.0,
+  "water_ov": 0.0,
+  "posture_prob_standing": 0.02446475976181802,
+  "track": "Event20261108140133003_3",
+  "question": "Which of the candidate cows (Cow01, Cow06, Cow03) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+  "context": "tracker assigned Cow01 with a small margin (0.05)",
+  "candidates": [
+   [
+    "Cow01",
+    "Cam 02",
+    "2026-11-07 17:26:06.233333",
+    [
+     "580",
+     "180",
+     "1163",
+     "777"
+    ]
+   ],
+   [
+    "Cow06",
+    "Cam 02",
+    "2026-11-08 17:21:10.166667",
+    [
+     "671",
+     "195",
+     "1189",
+     "756"
+    ]
+   ],
+   [
+    "Cow03",
+    "Cam 02",
+    "2026-11-07 17:07:42.266667",
+    [
+     "103",
+     "146",
+     "538",
+     "776"
+    ]
+   ]
+  ]
+ },
+ "steps": [
+  {
+   "role": "pipeline",
+   "text": "CASE full_id_Event20261108140133003_3 (identity). Camera Cam 03 (back cam (wide view of whole pen)), time 2026-11-08 14:03:55.566667.\nTracker context: tracker assigned Cow01 with a small margin (0.05)\nQuestion: Which of the candidate cows (Cow01, Cow06, Cow03) is the boxed cow? Compare tag colour and which ear, white markings, body size/shape. Also label her behaviour.",
+   "images": [
+    "01_frame.jpg",
+    "02_zoom.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow01",
+   "images": [
+    "03_cand_Cow01.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow06",
+   "images": [
+    "04_cand_Cow06.jpg"
+   ]
+  },
+  {
+   "role": "pipeline",
+   "text": "candidate Cow03",
+   "images": [
+    "05_cand_Cow03.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "chew_check",
+     "input": {
+      "offset_s": 0
+     }
+    },
+    {
+     "name": "look_sequence",
+     "input": {
+      "offsets_s": [
+       -20,
+       20
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "chew_check",
+   "result": [
+    "{\"error\": \"too few frames\"}"
+   ],
+   "images": []
+  },
+  {
+   "role": "tool",
+   "name": "look_sequence",
+   "result": [
+    "offset -20s (box shows the case-time position)",
+    "offset +20s (box shows the case-time position)"
+   ],
+   "images": [
+    "06_seq_-20s.jpg",
+    "07_seq_+20s.jpg"
+   ]
+  },
+  {
+   "role": "agent",
+   "text": "",
+   "tool_calls": [
+    {
+     "name": "submit",
+     "input": {
+      "behavior": "lying",
+      "posture": "lying",
+      "same_cow_as_candidate": "none",
+      "clinical_signs": [
+       "none_seen"
+      ],
+      "confidence": 0.3,
+      "evidence": "The boxed animal is the cow at the back of the pair. She is lying on her chest with her head up, and there is a white or pale tag in the ear facing the camera. There are no white markings on her body. A second cow is lying flat on her side in front of her and overlaps the box. All three reference crops (Cow01, Cow06, Cow03) were unavailable, so I could not compare tag colour, ear side, markings or size against anything. At -20 s and +20 s she is still lying in the same spot, away from the bunk and the waterer. Her ears looked normal and her head was up. I saw no discharge.",
+      "self_check": "I checked her posture at -20 s and +20 s with look_sequence, and it was the same both times. The chew test failed ('too few frames'), so I can't rule rumination in or out. If she was chewing cud, the right label would be ruminating_lying instead of lying. I can't resolve her identity without the reference images. The tracker's pick of Cow01 had only a 0.05 margin and I could not check it, so I am not confirming any candidate. Since the box overlaps the cow in front, it may also have meant that cow, who was likewise lying."
+     }
+    }
+   ]
+  },
+  {
+   "role": "tool",
+   "name": "submit",
+   "result": [
+    "recorded"
+   ],
+   "images": []
+  }
+ ],
+ "started": "06:25:02",
+ "answer": {
+  "behavior": "lying",
+  "posture": "lying",
+  "same_cow_as_candidate": "none",
+  "clinical_signs": [
+   "none_seen"
+  ],
+  "confidence": 0.3,
+  "evidence": "The boxed animal is the cow at the back of the pair. She is lying on her chest with her head up, and there is a white or pale tag in the ear facing the camera. There are no white markings on her body. A second cow is lying flat on her side in front of her and overlaps the box. All three reference crops (Cow01, Cow06, Cow03) were unavailable, so I could not compare tag colour, ear side, markings or size against anything. At -20 s and +20 s she is still lying in the same spot, away from the bunk and the waterer. Her ears looked normal and her head was up. I saw no discharge.",
+  "self_check": "I checked her posture at -20 s and +20 s with look_sequence, and it was the same both times. The chew test failed ('too few frames'), so I can't rule rumination in or out. If she was chewing cud, the right label would be ruminating_lying instead of lying. I can't resolve her identity without the reference images. The tracker's pick of Cow01 had only a 0.05 margin and I could not check it, so I am not confirming any candidate. Since the box overlaps the cow in front, it may also have meant that cow, who was likewise lying.",
+  "geometry_issues": [],
+  "rechecked": false
+ },
+ "rounds": 2
+}
