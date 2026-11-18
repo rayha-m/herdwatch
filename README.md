@@ -1,14 +1,14 @@
-
 # HerdWatch: agentic vision for Angus behaviour and BRD risk (Pen 6)
 
 Team project for the Merck–TAMU Animal Science Hackathon 2026 (*Agentic Vision for Angus Behavior and BRD Prediction*).
 
 This system watches the three Pen 6 cameras over both days. It labels what each of the 10 cows is doing every minute and ranks the cows by BRD risk, with reasons a veterinarian can check and video clips as evidence. It also runs as a live early-warning loop on new video. A fast detector and tracker do the bulk of the work. A Claude vision agent is called only for cases they cannot settle, and it checks its own answers. **Every accuracy number below comes from blind audits we ran on the event video**, including the parts that did not work well.
 
-Two-page technical brief: [`docs/technical_brief.md`](docs/technical_brief.md) · Validation numbers: [`outputs/validation.json`](outputs/validation.json)
 **Demo (84 s):**
 
 https://github.com/user-attachments/assets/ccad8ccb-60dd-4424-8fda-f045c0a51933
+
+Two-page technical brief: [`docs/technical_brief.md`](docs/technical_brief.md) · Validation numbers: [`outputs/validation.json`](outputs/validation.json)
 
 
 ## Contents
@@ -180,4 +180,4 @@ Development slice (one hour, one camera): `python -m pipeline.level1 --cams "Cam
   - Wolfger et al. 2015: feeding and drinking behaviour before BRD diagnosis.
   - Toaff-Rosenstein et al. 2016: sickness behaviour after an experimental respiratory challenge.
   - Hart 1988: sickness behaviour.
-- **Event data stays private.** Raw video, frames and the agent's working images are git-ignored; this repository is private. Only ID-check frames, short evidence clips and derived tables are committed.
+- **Event data.** Raw video and the agent's working images are git-ignored. Only ID-check frames, short evidence clips and derived tables are committed.
