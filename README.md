@@ -6,7 +6,10 @@ Team project for the Merck–TAMU Animal Science Hackathon 2026 (*Agentic Vision
 This system watches the three Pen 6 cameras over both days. It labels what each of the 10 cows is doing every minute and ranks the cows by BRD risk, with reasons a veterinarian can check and video clips as evidence. It also runs as a live early-warning loop on new video. A fast detector and tracker do the bulk of the work. A Claude vision agent is called only for cases they cannot settle, and it checks its own answers. **Every accuracy number below comes from blind audits we ran on the event video**, including the parts that did not work well.
 
 Two-page technical brief: [`docs/technical_brief.md`](docs/technical_brief.md) · Validation numbers: [`outputs/validation.json`](outputs/validation.json)
-Demo video (1.5 min, download to watch): [`HerdWatch_demo.mp4`](HerdWatch_demo.mp4)
+**Demo (84 s):**
+
+https://github.com/user-attachments/assets/ccad8ccb-60dd-4424-8fda-f045c0a51933
+
 
 ## Contents
 [Approach](#approach) · [Results](#results) · [Reproduce](#reproduce-exact-commands) · [Outputs](#outputs) · [Observed vs estimated vs assumed](#observed-vs-estimated-vs-assumed) · [Limitations](#limitations-and-what-2-days--10-cows-can-support) · [Models, data and AI disclosure](#models-data-tools-and-ai-disclosure)
