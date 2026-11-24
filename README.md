@@ -7,7 +7,7 @@ This system watches the three Pen 6 cameras over both days. It labels what each 
 **Demo (85 s):**
 
 
-https://github.com/user-attachments/assets/956abe62-b3d3-49fe-b813-89beca47fa05
+https://github.com/user-attachments/assets/6f5113bf-6513-49a8-856b-3d62d8e6f030
 
 
 Two-page technical brief: [`docs/technical_brief.md`](docs/technical_brief.md) · Validation numbers: [`outputs/validation.json`](outputs/validation.json)
